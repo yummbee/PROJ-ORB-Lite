@@ -1,2 +1,0 @@
-/usr/bin/ar qc liborb_lite.a CMakeFiles/orb_lite.dir/src/Vision.cpp.o CMakeFiles/orb_lite.dir/src/IMU.cpp.o CMakeFiles/orb_lite.dir/src/Map.cpp.o CMakeFiles/orb_lite.dir/src/Tracking.cpp.o CMakeFiles/orb_lite.dir/src/Optimizer.cpp.o CMakeFiles/orb_lite.dir/src/DataLoader.cpp.o CMakeFiles/orb_lite.dir/src/BoW.cpp.o CMakeFiles/orb_lite.dir/src/KeyFrameDatabase.cpp.o CMakeFiles/orb_lite.dir/src/LoopClosing.cpp.o CMakeFiles/orb_lite.dir/src/Atlas.cpp.o
-/usr/bin/ranlib liborb_lite.a
