@@ -1,0 +1,10 @@
+/Users/jordanwright/Documents/GitHub/proj-phone/ORB-Lite/build/CMakeFiles/test_ba.dir
+/Users/jordanwright/Documents/GitHub/proj-phone/ORB-Lite/build/CMakeFiles/test_jacobian.dir
+/Users/jordanwright/Documents/GitHub/proj-phone/ORB-Lite/build/CMakeFiles/orb_lite.dir
+/Users/jordanwright/Documents/GitHub/proj-phone/ORB-Lite/build/CMakeFiles/orb_lite_test.dir
+/Users/jordanwright/Documents/GitHub/proj-phone/ORB-Lite/build/CMakeFiles/test_mapping.dir
+/Users/jordanwright/Documents/GitHub/proj-phone/ORB-Lite/build/CMakeFiles/test_imu.dir
+/Users/jordanwright/Documents/GitHub/proj-phone/ORB-Lite/build/CMakeFiles/test_bootstrapping.dir
+/Users/jordanwright/Documents/GitHub/proj-phone/ORB-Lite/build/CMakeFiles/test_vision.dir
+/Users/jordanwright/Documents/GitHub/proj-phone/ORB-Lite/build/CMakeFiles/edit_cache.dir
+/Users/jordanwright/Documents/GitHub/proj-phone/ORB-Lite/build/CMakeFiles/rebuild_cache.dir

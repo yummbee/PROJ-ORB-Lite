@@ -1,0 +1,201 @@
+Loading Vocabulary from /Users/jordanwright/Documents/GitHub/proj-phone/ORB-SLAM3-Custom/Vocabulary/ORBvoc.txt...
+Vocabulary loaded: 1081983 nodes, 1077216 words.
+Starting Full SLAM Test: data/2026_05_12_12_42_43/
+DataLoader: Frame 0, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.0240002s
+DataLoader: Frame 1, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.0570002s
+DataLoader: Frame 2, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.0910001s
+DataLoader: Frame 3, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.124s
+DataLoader: Frame 4, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.157s
+DataLoader: Frame 5, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.191s
+DataLoader: Frame 6, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.224s
+DataLoader: Frame 7, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.257s
+DataLoader: Frame 8, IMU samples: 4 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.291s
+DataLoader: Frame 9, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.324s
+DataLoader: Frame 10, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.357s
+DataLoader: Frame 11, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.391s
+DataLoader: Frame 12, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.424s
+DataLoader: Frame 13, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.457s
+DataLoader: Frame 14, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.491s
+DataLoader: Frame 15, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.524s
+DataLoader: Frame 16, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.557s
+DataLoader: Frame 17, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.591s
+DataLoader: Frame 18, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.624s
+DataLoader: Frame 19, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.657s
+DataLoader: Frame 20, IMU samples: 4 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.691s
+DataLoader: Frame 21, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.724s
+DataLoader: Frame 22, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.757s
+DataLoader: Frame 23, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.791s
+DataLoader: Frame 24, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.824s
+DataLoader: Frame 25, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.857s
+DataLoader: Frame 26, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.891s
+DataLoader: Frame 27, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.924s
+DataLoader: Frame 28, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.957s
+DataLoader: Frame 29, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 0.991s
+DataLoader: Frame 30, IMU samples: 4 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.024s
+DataLoader: Frame 31, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.057s
+DataLoader: Frame 32, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.091s
+DataLoader: Frame 33, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.124s
+DataLoader: Frame 34, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.157s
+DataLoader: Frame 35, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.191s
+DataLoader: Frame 36, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.224s
+DataLoader: Frame 37, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.257s
+DataLoader: Frame 38, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.291s
+DataLoader: Frame 39, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.324s
+DataLoader: Frame 40, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.357s
+DataLoader: Frame 41, IMU samples: 4 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.391s
+DataLoader: Frame 42, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.424s
+DataLoader: Frame 43, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.457s
+DataLoader: Frame 44, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.491s
+DataLoader: Frame 45, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.524s
+DataLoader: Frame 46, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.557s
+DataLoader: Frame 47, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.591s
+DataLoader: Frame 48, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.624s
+DataLoader: Frame 49, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.657s
+DataLoader: Frame 50, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.691s
+DataLoader: Frame 51, IMU samples: 4 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.724s
+DataLoader: Frame 52, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.757s
+DataLoader: Frame 53, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.791s
+DataLoader: Frame 54, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.824s
+DataLoader: Frame 55, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.857s
+DataLoader: Frame 56, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.891s
+DataLoader: Frame 57, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.924s
+DataLoader: Frame 58, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.957s
+DataLoader: Frame 59, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrating... 1.991s
+DataLoader: Frame 60, IMU samples: 3 timestamp: 1.77858e+09
+Tracking IMU Calibrated over 188 samples. 
+ ba=[0.025575,-0.0291804,-0.00167704]
+ bg=[-0.121551,0.0523898,-0.00971616]
+DataLoader: Frame 61, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0232241 dV_w=0.0242869,-0.0125017,0.229864 G_term=-0.227829 v.z=0.0020352
+DataLoader: Frame 62, IMU samples: 4 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0430996 dV_w=0.0418456,-0.0157098,0.41234 G_term=-0.422807 v.z=-0.00843239
+DataLoader: Frame 63, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323248 dV_w=0.0269819,-0.0148969,0.310936 G_term=-0.317106 v.z=-0.0146022
+DataLoader: Frame 64, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0238261,-0.0228105,0.318349 G_term=-0.317104 v.z=-0.0133571
+DataLoader: Frame 65, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0344025,-0.0161996,0.318997 G_term=-0.317104 v.z=-0.0114642
+DataLoader: Frame 66, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0295052,-0.00965929,0.310193 G_term=-0.317104 v.z=-0.018375
+DataLoader: Frame 67, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323248 dV_w=0.0251139,-0.01411,0.314231 G_term=-0.317106 v.z=-0.0212506
+DataLoader: Frame 68, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0273023,-0.0107833,0.306879 G_term=-0.317104 v.z=-0.0314759
+DataLoader: Frame 69, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0383577,-0.00859912,0.308105 G_term=-0.317104 v.z=-0.0404744
+Tracking: Init check frame=10 matches=248 baseline=0.0444939m pos=[0.039578,-0.0198318,-0.00447103]
+Tracking: Triangulated 18 valid points
+DataLoader: Frame 70, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0338245,-0.0114134,0.311372 G_term=-0.317104 v.z=-0.0462065
+DataLoader: Frame 71, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323248 dV_w=0.0246543,-0.0189265,0.316944 G_term=-0.317106 v.z=-0.0463685
+DataLoader: Frame 72, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0339716,-0.0177821,0.310505 G_term=-0.317104 v.z=-0.0529672
+DataLoader: Frame 73, IMU samples: 4 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0430996 dV_w=0.0442033,-0.0259398,0.416488 G_term=-0.422807 v.z=-0.0592867
+DataLoader: Frame 74, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0330614,-0.0224416,0.315761 G_term=-0.317104 v.z=-0.0606292
+DataLoader: Frame 75, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0375218,-0.0182628,0.309578 G_term=-0.317104 v.z=-0.0681548
+DataLoader: Frame 76, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0463805,-0.0243668,0.324724 G_term=-0.317104 v.z=-0.0605348
+DataLoader: Frame 77, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323248 dV_w=0.0481502,-0.0243893,0.327102 G_term=-0.317106 v.z=-0.0505387
+DataLoader: Frame 78, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0412894,-0.0247755,0.309707 G_term=-0.317104 v.z=-0.0579352
+DataLoader: Frame 79, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0408362,-0.0174199,0.299434 G_term=-0.317104 v.z=-0.075605
+Tracking: Init check frame=20 matches=153 baseline=0.212468m pos=[0.189281,-0.0937123,-0.0230889]
+Tracking: Triangulated 21 valid points
+DataLoader: Frame 80, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323248 dV_w=0.0439924,-0.0170481,0.295125 G_term=-0.317106 v.z=-0.0975861
+DataLoader: Frame 81, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323248 dV_w=0.041466,-0.0239847,0.306559 G_term=-0.317106 v.z=-0.108134
+DataLoader: Frame 82, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0455766,-0.0252333,0.309433 G_term=-0.317104 v.z=-0.115804
+DataLoader: Frame 83, IMU samples: 4 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0430996 dV_w=0.0580207,-0.0370519,0.431412 G_term=-0.422807 v.z=-0.1072
+DataLoader: Frame 84, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323243 dV_w=0.0418783,-0.0308303,0.333001 G_term=-0.317102 v.z=-0.0913004
+DataLoader: Frame 85, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323248 dV_w=0.0426277,-0.0297578,0.318462 G_term=-0.317106 v.z=-0.0899442
+DataLoader: Frame 86, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323248 dV_w=0.0413666,-0.0328291,0.325121 G_term=-0.317106 v.z=-0.0819298
+DataLoader: Frame 87, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0419468,-0.0254681,0.318566 G_term=-0.317104 v.z=-0.0804678
+DataLoader: Frame 88, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0356233,-0.0203585,0.310672 G_term=-0.317104 v.z=-0.0868997
+DataLoader: Frame 89, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0453353,-0.0243181,0.312536 G_term=-0.317104 v.z=-0.0914672
+Tracking: Init check frame=30 matches=114 baseline=0.545062m pos=[0.482361,-0.247788,-0.0549709]
+Tracking: Triangulated 33 valid points
+Tracking: INITIALIZED! Map=33 baseline=0.545062m
+DataLoader: Frame 90, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.032325 dV_w=0.0462505,-0.0311701,0.315475 G_term=-0.317109 v.z=-0.0931009
+searchMapPoints: map_size=33 matches=14
+Tracking: Optimized pos=[0.734546,-0.905233,0.0984809] matches=14
+Tracking: KeyFrame inserted. Matches=104 Triangulated=26 Total Map=59
+DataLoader: Frame 91, IMU samples: 3 timestamp: 1.77858e+09
+IMU Dbg: idt=0.0323246 dV_w=0.0440509,-0.0271255,0.318859 G_term=-0.317104 v.z=0.419062
+searchMapPoints: map_size=59 matches=26
+Tracking: Optimized pos=[0.643292,-1.01729,0.142649] matches=26
