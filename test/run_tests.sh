@@ -5,8 +5,10 @@ set -e
 cd "$(dirname "$0")/.."
 
 # Configure and build
-cmake -S . -B build
-cmake --build build
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+# 2. Tell CMake to use 8 CPU cores to compile your .cpp files instantly
+cmake --build build --parallel 8
 
 TEST_TO_RUN=$1
 

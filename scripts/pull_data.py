@@ -129,10 +129,13 @@ def _extract_camera_frames(video_path: Path, out_dir: Path, t0_ns: int, frame_ep
         frame_path.rename(camera_dir / f"{t_ns // 1000000}.jpg")
     return len(extracted)
 
+def _build_proto_module(proto_file: Path, parser_out_dir: Path, protoc_bin: Path) -> None:
+    parser_out_dir.mkdir(parents=True, exist_ok=True)
+    # Note: -I must point to the directory containing the proto file
+    _run([str(protoc_bin), f"-I{proto_file.parent}", f"--python_out={parser_out_dir}", str(proto_file)])
+
 def main() -> None:
     orb_lite_root = Path(__file__).resolve().parents[1]
-    # We assume VideoIMUCapture-Android is in a sibling directory or third_party
-    videoimu_repo = orb_lite_root.parent / "minimal_3d_slam" / "VideoIMUCapture-Android"
     
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", default=str(orb_lite_root / "data"))
@@ -143,9 +146,21 @@ def main() -> None:
     remote_capture, _ = _choose_capture_path(REMOTE_DEFAULT)
     local_capture = _adb_pull(remote_capture, out_dir)
     
-    parser_out_dir = videoimu_repo / "proto_python"
+    # --- NEW: Self-Contained Proto Logic ---
+    scripts_dir = orb_lite_root / "scripts"
+    proto_file = scripts_dir / "recording.proto"
+    
+    # Download the proto file on the fly if it's missing
+    if not proto_file.exists():
+        print(f"Downloading recording.proto to {proto_file}...")
+        url = "https://raw.githubusercontent.com/DavidGillsjo/VideoIMUCapture-Android/master/protobuf/recording.proto"
+        urllib.request.urlretrieve(url, proto_file)
+        
+    parser_out_dir = scripts_dir / "proto_python"
     protoc_bin = _resolve_protoc(orb_lite_root / ".tools")
-    _build_proto_module(videoimu_repo, parser_out_dir, protoc_bin)
+    
+    _build_proto_module(proto_file, parser_out_dir, protoc_bin)
+    # ---------------------------------------
     
     _install_python_deps()
     

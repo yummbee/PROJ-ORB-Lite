@@ -28,6 +28,12 @@ struct Mat3x3 {
     double& at(int r, int c) { return m[r * 3 + c]; }
     const double& at(int r, int c) const { return m[r * 3 + c]; }
 
+    const static Mat3x3 zeros() {
+        Mat3x3 m;
+        for(int i=0; i<9; i++) m.m[i] = 0;
+        return m;
+    }
+
     static Mat3x3 identity() {
         return {1, 0, 0, 0, 1, 0, 0, 0, 1};
     }
@@ -407,6 +413,14 @@ inline Vec4 solve4x4(const Mat4x4& A, const Vec4& B) {
     for (int i = 0; i < 4; i++) b[i] = B[i];
     if (!solveLinear<4>(mat, b, x)) return {0, 0, 0, 0};
     return {x[0], x[1], x[2], x[3]};
+}
+
+inline Vec3 solve3x3(const Mat3x3& A, const Vec3& B) {
+    double mat[9], b[3], x[3];
+    for (int i = 0; i < 9; i++) mat[i] = A.m[i];
+    for (int i = 0; i < 3; i++) b[i] = B[i];
+    if (!solveLinear<3>(mat, b, x)) return {0, 0, 0};
+    return {x[0], x[1], x[2]};
 }
 
 } // namespace orb_lite

@@ -1,0 +1,201 @@
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/jordanwright/Documents/GitHub/PROJ-ORB-Lite/build
+[ 44%] Built target orb_lite
+[ 52%] Built target test_jacobian
+[ 60%] Built target orb_lite_test
+[ 76%] Built target test_imu
+[ 76%] Built target test_ba
+[ 84%] Built target test_vision
+[ 92%] Built target test_bootstrapping
+[100%] Built target test_mapping
+--- Running test_mapping on data/2026_05_13_11_51_58/ ---
+Loading Vocabulary from Vocabulary/ORBvoc.txt...
+Vocabulary loaded: 1081983 nodes, 1077216 words.
+Atlas: Created new Map (1 total)
+Starting Atlas SLAM Test: data/2026_05_13_11_51_58/
+DataLoader: Frame 0, IMU samples: 24 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.254s
+DataLoader: Frame 1, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.287s
+DataLoader: Frame 2, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.32s
+DataLoader: Frame 3, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.354s
+DataLoader: Frame 4, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.387s
+DataLoader: Frame 5, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.42s
+DataLoader: Frame 6, IMU samples: 4 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.454s
+DataLoader: Frame 7, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.487s
+DataLoader: Frame 8, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.52s
+DataLoader: Frame 9, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.554s
+DataLoader: Frame 10, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.587s
+DataLoader: Frame 11, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.62s
+DataLoader: Frame 12, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.654s
+DataLoader: Frame 13, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.687s
+DataLoader: Frame 14, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.72s
+DataLoader: Frame 15, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.754s
+DataLoader: Frame 16, IMU samples: 4 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.787s
+DataLoader: Frame 17, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.82s
+DataLoader: Frame 18, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.854s
+DataLoader: Frame 19, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.887s
+DataLoader: Frame 20, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.92s
+DataLoader: Frame 21, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.954s
+DataLoader: Frame 22, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 0.987s
+DataLoader: Frame 23, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.02s
+DataLoader: Frame 24, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.054s
+DataLoader: Frame 25, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.087s
+DataLoader: Frame 26, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.12s
+DataLoader: Frame 27, IMU samples: 4 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.154s
+DataLoader: Frame 28, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.187s
+DataLoader: Frame 29, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.22s
+DataLoader: Frame 30, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.254s
+DataLoader: Frame 31, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.287s
+DataLoader: Frame 32, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.32s
+DataLoader: Frame 33, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.354s
+DataLoader: Frame 34, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.387s
+DataLoader: Frame 35, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.42s
+DataLoader: Frame 36, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.454s
+DataLoader: Frame 37, IMU samples: 4 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.487s
+DataLoader: Frame 38, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.52s
+DataLoader: Frame 39, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.554s
+DataLoader: Frame 40, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.587s
+DataLoader: Frame 41, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.62s
+DataLoader: Frame 42, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.654s
+DataLoader: Frame 43, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.687s
+DataLoader: Frame 44, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.72s
+DataLoader: Frame 45, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.754s
+DataLoader: Frame 46, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.787s
+DataLoader: Frame 47, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.82s
+DataLoader: Frame 48, IMU samples: 4 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.854s
+DataLoader: Frame 49, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.887s
+DataLoader: Frame 50, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.92s
+DataLoader: Frame 51, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.954s
+DataLoader: Frame 52, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrating... 1.987s
+DataLoader: Frame 53, IMU samples: 3 timestamp: 1.77867e+09
+Tracking IMU Calibrated over 188 samples. 
+ ba=[0.0900308,-0.00249501,-0.00284467]
+ bg=[0.00404292,-0.00134358,-0.00273752]
+Init: Locked Frame A.
+DataLoader: Frame 54, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 55, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 56, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 57, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 58, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 59, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 60, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 61, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 62, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 63, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 64, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 65, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 66, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 67, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.00496241m
+DataLoader: Frame 68, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 69, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 70, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 71, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 72, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 73, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 74, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 75, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 76, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 77, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 78, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 79, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 80, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 81, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 82, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0198277m
+DataLoader: Frame 83, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 84, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 85, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 86, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 87, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 88, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 89, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 90, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 91, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 92, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 93, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 94, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 95, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 96, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 97, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0434356m
+DataLoader: Frame 98, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 99, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 100, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 101, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 102, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 103, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 104, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 105, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 106, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 107, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 108, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 109, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 110, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 111, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 112, IMU samples: 4 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0221236m
+DataLoader: Frame 113, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 114, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 115, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 116, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 117, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 118, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 119, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 120, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 121, IMU samples: 3 timestamp: 1.77867e+09

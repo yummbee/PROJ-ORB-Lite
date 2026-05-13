@@ -63,7 +63,7 @@ int main(int argc, char** argv) {
     }
 
     std::string recordingDir = argv[1];
-    std::string vocFile = (argc > 2) ? argv[2] : "../ORB-SLAM3-Custom/Vocabulary/ORBvoc.txt";
+    std::string vocFile = (argc > 2) ? argv[2] : "Vocabulary/ORBvoc.txt";
     
     orb_lite::DataLoader loader(recordingDir);
     
@@ -135,6 +135,29 @@ int main(int argc, char** argv) {
         frameCount++;
     }
 
-    std::cout << "SLAM Test Finished." << std::endl;
+    std::cout << "SLAM Test Finished. Exporting Atlas data..." << std::endl;
+
+    // 1. Retrieve all maps from the Atlas
+    auto all_maps = atlas.getAllMaps();
+    std::cout << "Atlas contains " << all_maps.size() << " separate maps." << std::endl;
+
+    // 2. Save each map to a distinct CSV file
+    int map_idx = 0;
+    for (orb_lite::Map* m : all_maps) {
+        // Only save maps that actually accumulated useful data to avoid clutter
+        if (m->points.size() > 50) {
+            std::string filename = "atlas_map_" + std::to_string(map_idx) + ".csv";
+            m->saveCSV(filename.c_str());
+            
+            std::cout << " -> Saved " << filename << " (" 
+                      << m->points.size() << " points, " 
+                      << m->keyframes.size() << " KeyFrames)." << std::endl;
+            map_idx++;
+        } else {
+            std::cout << " -> Ignored a fragmented map with only " << m->points.size() << " points." << std::endl;
+        }
+    }
+
     return 0;
+
 }

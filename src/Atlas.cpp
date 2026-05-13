@@ -57,8 +57,10 @@ void Atlas::mergeMaps(Map* pTargetMap, Map* pCurrentMap, const Mat4x4& T_Wt_Wc) 
 
     // 4. Transform and Migrate KeyFrames
     for (auto& kf : pCurrentMap->keyframes) {
-        // T_C_Wtarget = T_C_Wcurrent * T_Wcurrent_Wtarget
-        kf.pose = mat44Mul(kf.pose, T_Wc_Wt); 
+        // kf.pose is T_Wc_c (transform from Camera to Current World).
+        // We want T_Wt_c (transform from Camera to Target World).
+        // T_Wt_c = T_Wt_Wc * T_Wc_c
+        kf.pose = mat44Mul(T_Wt_Wc, kf.pose); 
         
         // CRITICAL: Shift the MapPoint IDs so the KeyFrame looks at the correct memory locations!
         for (int i = 0; i < (int)kf.mapPointIds.size(); i++) {

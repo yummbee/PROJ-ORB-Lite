@@ -21,7 +21,7 @@ public:
     static void localBundleAdjustment(Map& map, int currentKfId, int windowSize = 5);
     
     // Pose-only optimization (similar to TrackLocalMap in ORB-SLAM3)
-    static void poseOptimization(const std::vector<std::pair<int, int>>& matches, 
+static int poseOptimization(std::vector<std::pair<int, int>>& matches, 
                                  const std::vector<KeyPoint>& kps,
                                  const Camera& cam,
                                  NavState& state,

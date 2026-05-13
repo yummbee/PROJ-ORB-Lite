@@ -1,6 +1,7 @@
 #include "KeyFrameDatabase.hpp"
 #include <algorithm>
 #include <set>
+#include <iostream>
 
 namespace orb_lite {
 
@@ -27,47 +28,66 @@ void KeyFrameDatabase::clear() {
     for(auto& l : mvInvertedFile) l.clear();
 }
 
+#include <unordered_map>
+
 std::vector<KeyFrame*> KeyFrameDatabase::detectRelocalizationCandidates(const BowVector& bow) {
-    std::vector<int> kfShareCount(10000, 0); // Assuming < 10000 KFs for now
-    std::set<KeyFrame*> candidateSet;
     std::vector<KeyFrame*> candidates;
     
+    // SAFETY CHECK: If motion blur caused 0 FAST corners, don't waste CPU.
+    if (bow.empty()) return candidates; 
+
+    // USE AN UNORDERED MAP: Uses the absolute memory pointer as the unique key. 
+    // This prevents Map 1 KF #0 and Map 2 KF #0 from colliding!
+    std::unordered_map<KeyFrame*, int> kfShareCount;
+    int maxCommonWords = 0;
+
     {
         std::unique_lock<std::mutex> lock(mMutex);
+        
+        // CATCH THE UNSIZED DB TRAP
+        if (mvInvertedFile.empty()) {
+            std::cout << "CRITICAL: mvInvertedFile is empty! Did you call resize(mpVoc->size()) in the constructor?" << std::endl;
+            return candidates;
+        }
+
         for(auto it = bow.begin(); it != bow.end(); it++) {
             WordId wid = it->first;
             if(wid >= mvInvertedFile.size()) continue;
+            
             for(KeyFrame* pKF : mvInvertedFile[wid]) {
-                if(pKF->id >= (int)kfShareCount.size()) kfShareCount.resize(pKF->id + 1000, 0);
-                kfShareCount[pKF->id]++;
-                candidateSet.insert(pKF);
+                kfShareCount[pKF]++;
+                if (kfShareCount[pKF] > maxCommonWords) {
+                    maxCommonWords = kfShareCount[pKF];
+                }
             }
         }
     }
     
-    if(candidateSet.empty()) return candidates;
+    if(kfShareCount.empty()) return candidates;
 
     // Filter by max shared words
-    int maxCommonWords = 0;
-    for(KeyFrame* pKF : candidateSet) {
-        if(kfShareCount[pKF->id] > maxCommonWords) maxCommonWords = kfShareCount[pKF->id];
-    }
-
     int minCommonWords = (int)(maxCommonWords * 0.8);
     
     std::vector<std::pair<double, KeyFrame*>> scoreKFs;
-    for(KeyFrame* pKF : candidateSet) {
-        if(kfShareCount[pKF->id] > minCommonWords) {
+    for(const auto& pair : kfShareCount) {
+        KeyFrame* pKF = pair.first;
+        int sharedWords = pair.second;
+        
+        if(sharedWords >= minCommonWords) {
             double s = mpVoc->score(bow, pKF->bowVec);
-            scoreKFs.push_back({s, pKF});
+            // Ignore random background noise matches
+            if (s > 0.015) { 
+                scoreKFs.push_back({s, pKF});
+            }
         }
     }
     
+    // Sort descending by score
     std::sort(scoreKFs.rbegin(), scoreKFs.rend());
     
     for(auto& p : scoreKFs) {
         candidates.push_back(p.second);
-        if(candidates.size() > 10) break;
+        if(candidates.size() >= 10) break;
     }
     
     return candidates;
