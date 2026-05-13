@@ -91,7 +91,11 @@ void Tracking::searchMapPoints(const std::vector<Descriptor> &descriptors,
   Mat3x3 R_wc = qToMat33(state.q);
   Mat3x3 R_cw = mat33Transpose(R_wc);
 
-  const float radius = is_initialized ? 50.0f : 100.0f;
+    double speed = norm(state.v);
+    float dynamic_radius = 50.0f + (float)(speed * 30.0); // Add 30px per m/s
+    if (dynamic_radius > 150.0f) dynamic_radius = 150.0f;
+
+    const float radius = is_initialized ? dynamic_radius : 150.0f;
   const int grid_radius = (int)(radius / 10.0) + 1;
 
   for (size_t j = 0; j < map->points.size(); j++) {
@@ -277,98 +281,95 @@ bool Tracking::track(const Image &img, const std::vector<ImuSample> &imu,
   }
 
   if (!is_initialized) {
+    // STATE 0: Capture Frame A
     if (last_kps.empty()) {
-      last_kps = kps;
-      last_descriptors = descriptors;
-      Mat3x3 R = qToMat33(state.q);
-      last_T_world_cam = Mat4x4::identity();
-      for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++)
-          last_T_world_cam.at(i, j) = R.at(i, j);
-        last_T_world_cam.at(i, 3) = state.p[i];
-      }
-      return false;
-    }
-
-    // Try initialization every frame (grid matcher is now fast enough)
-    if (true) {
-      std::vector<std::pair<int, int>> matches;
-      matchDescriptorsGrid(last_kps, last_descriptors, kps, descriptors, matches, 100.0f);
-
-      Vec3 p_start = {last_T_world_cam.m[3], last_T_world_cam.m[7],
-                      last_T_world_cam.m[11]};
-      // Do not arbitrarily set tracking_state = OK here if not initialized yet
-
-      double d_baseline = std::sqrt(std::pow(state.p.x - p_start.x, 2) +
-                                    std::pow(state.p.y - p_start.y, 2) +
-                                    std::pow(state.p.z - p_start.z, 2));
-
-      if (frame_count % 10 == 0) {
-          std::cout << "Tracking: Initializing... baseline=" << d_baseline << "m matches=" << matches.size() << std::endl;
-      }
-
-      if ((int)matches.size() > 20 && d_baseline > 0.005) {
-        Mat4x4 T_curr = Mat4x4::identity();
-        Mat3x3 R = qToMat33(state.q);
-        for (int i = 0; i < 3; i++) {
-          for (int j = 0; j < 3; j++)
-            T_curr.at(i, j) = R.at(i, j);
-          T_curr.at(i, 3) = state.p[i];
-        }
-        Mat4x4 T1w, T2w;
-        invert4x4(last_T_world_cam, T1w);
-        invert4x4(T_curr, T2w);
-
-        int valid_count = 0;
-        for (const auto &m : matches) {
-          Vec3 p1u = cam.unproject(last_kps[m.first].x, last_kps[m.first].y);
-          Vec3 p2u = cam.unproject(kps[m.second].x, kps[m.second].y);
-          Vec3 pw = triangulate(p1u, p2u, T1w, T2w);
-          if (pw.x == 0 && pw.y == 0 && pw.z == 0)
-            continue;
-
-          // Check depth in current camera frame
-          Vec3 pc = {
-              T2w.m[0] * pw.x + T2w.m[1] * pw.y + T2w.m[2] * pw.z + T2w.m[3],
-              T2w.m[4] * pw.x + T2w.m[5] * pw.y + T2w.m[6] * pw.z + T2w.m[7],
-              T2w.m[8] * pw.x + T2w.m[9] * pw.y + T2w.m[10] * pw.z + T2w.m[11]};
-          if (pc.z >= 0.1 && pc.z <= 15.0) {
-            MapPoint mp_pt;
-            mp_pt.pos = pw;
-            mp_pt.descriptor = descriptors[m.second];
-            mp_pt.pMap = map;
-            map->points.push_back(mp_pt);
-            valid_count++;
-          }
-        }
-
-        if (valid_count > 10) {
-          is_initialized = true;
-          tracking_state = OK;
-          std::cout << "Tracking: INITIALIZED! Map=" << map->points.size()
-                    << " baseline=" << d_baseline << "m" << std::endl;
-        } else {
-          map->points.clear();
-        }
-      }
-
-      // Update the reference frame if we've lost visibility or rotated too much without translating
-      if (!is_initialized && (matches.size() < 40)) {
         last_kps = kps;
         last_descriptors = descriptors;
         
         Mat3x3 R = qToMat33(state.q);
         last_T_world_cam = Mat4x4::identity();
         for (int i = 0; i < 3; i++) {
-          for (int j = 0; j < 3; j++) {
-            last_T_world_cam.at(i, j) = R.at(i, j);
-          }
-          last_T_world_cam.at(i, 3) = state.p[i];
+            for (int j = 0; j < 3; j++) last_T_world_cam.at(i, j) = R.at(i, j);
+            last_T_world_cam.at(i, 3) = state.p[i];
         }
-      }
+        std::cout << "Init: Locked Frame A." << std::endl;
+        return false;
     }
 
-  } else {
+    // STATE 1: Match against Frame A
+    std::vector<std::pair<int, int>> matches;
+    matchDescriptorsGrid(last_kps, last_descriptors, kps, descriptors, matches, 100.0f);
+
+    Vec3 p_start = {last_T_world_cam.m[3], last_T_world_cam.m[7], last_T_world_cam.m[11]};
+    double d_baseline = std::sqrt(std::pow(state.p.x - p_start.x, 2) +
+                                  std::pow(state.p.y - p_start.y, 2) +
+                                  std::pow(state.p.z - p_start.z, 2));
+
+    // GATE 1: Did we look away completely? (Lost the scene)
+    if (matches.size() < 15) {
+        std::cout << "Init: Scene lost. Resetting Frame A." << std::endl;
+        last_kps.clear(); // Forces a new Frame A on the next frame
+        return false;
+    }
+
+    // GATE 2: Wait for baseline (DO NOT OVERWRITE Frame A here!)
+    if (d_baseline < 0.05) {
+        if (frame_count % 15 == 0) {
+            std::cout << "Init: Waiting for baseline... " << d_baseline << "m" << std::endl;
+        }
+        return false; 
+    }
+
+    // STATE 2: We have baseline and matches. Attempt Triangulation!
+    Mat4x4 T_curr = Mat4x4::identity();
+    Mat3x3 R = qToMat33(state.q);
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) T_curr.at(i, j) = R.at(i, j);
+        T_curr.at(i, 3) = state.p[i];
+    }
+    
+    Mat4x4 T1w, T2w;
+    invert4x4(last_T_world_cam, T1w);
+    invert4x4(T_curr, T2w);
+
+    int valid_count = 0;
+    for (const auto &m : matches) {
+        Vec3 p1u = cam.unproject(last_kps[m.first].x, last_kps[m.first].y);
+        Vec3 p2u = cam.unproject(kps[m.second].x, kps[m.second].y);
+        Vec3 pw = triangulate(p1u, p2u, T1w, T2w);
+        
+        if (pw.x == 0 && pw.y == 0 && pw.z == 0) continue;
+
+        // Check depth in current camera frame
+        Vec3 pc = {
+            T2w.m[0] * pw.x + T2w.m[1] * pw.y + T2w.m[2] * pw.z + T2w.m[3],
+            T2w.m[4] * pw.x + T2w.m[5] * pw.y + T2w.m[6] * pw.z + T2w.m[7],
+            T2w.m[8] * pw.x + T2w.m[9] * pw.y + T2w.m[10] * pw.z + T2w.m[11]};
+            
+        if (pc.z >= 0.1 && pc.z <= 15.0) {
+            MapPoint mp_pt;
+            mp_pt.pos = pw;
+            mp_pt.descriptor = descriptors[m.second];
+            mp_pt.pMap = map;
+            map->points.push_back(mp_pt);
+            valid_count++;
+        }
+    }
+
+    // GATE 3: Verify the map is structurally sound
+    if (valid_count >= 20) {
+        is_initialized = true;
+        tracking_state = OK;
+        std::cout << "Tracking: INITIALIZED! Map=" << map->points.size()
+                  << " baseline=" << d_baseline << "m" << std::endl;
+    } else {
+        std::cout << "Init: Triangulation failed (bad geometry). Resetting Frame A." << std::endl;
+        map->points.clear();
+        last_kps.clear(); // Start over
+    }
+    
+    return false; // Still return false on the initialization frame so track() doesn't proceed to optimization yet
+} else {
     // TRACKING MODE
     tracked_map_indices.clear();
     searchMapPoints(descriptors, kps, tracked_map_indices);
@@ -394,9 +395,9 @@ bool Tracking::track(const Image &img, const std::vector<ImuSample> &imu,
     if (last_frame_time > 0) {
       double dt_opt = timestamp - last_frame_time;
       if (dt_opt > 0 && dt_opt < 1.0) {
-        state.v.x = (state.p.x - p_before_track.x) / dt_opt;
-        state.v.y = (state.p.y - p_before_track.y) / dt_opt;
-        state.v.z = (state.p.z - p_before_track.z) / dt_opt;
+        // state.v.x = (state.p.x - p_before_track.x) / dt_opt;
+        // state.v.y = (state.p.y - p_before_track.y) / dt_opt;
+        // state.v.z = (state.p.z - p_before_track.z) / dt_opt;
 
         // Keep bounded
         double v_mag = std::sqrt(state.v.x * state.v.x + state.v.y * state.v.y +
