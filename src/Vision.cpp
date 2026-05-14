@@ -21,23 +21,134 @@ void initPattern() {
     pattern_initialized = true;
 }
 
+void applyLowPassFilter(const Image& src, Image& dst) {
+    // Skip 1-pixel border to avoid bounds checks
+    for (int y = 1; y < src.rows - 1; y++) {
+        for (int x = 1; x < src.cols - 1; x++) {
+            int sum = 0;
+            for (int dy = -1; dy <= 1; dy++) {
+                for (int dx = -1; dx <= 1; dx++) {
+                    sum += src.data[(y + dy) * src.cols + (x + dx)];
+                }
+            }
+            dst.data[y * dst.cols + x] = (uint8_t)(sum / 9);
+        }
+    }
+}
+
+bool isFASTCorner(const Image& img, int x, int y, int threshold) {
+    unsigned char p = img.data[y * img.cols + x];
+    int circle_offsets[16][2] = {{0,-3},{1,-3},{2,-2},{3,-1},{3,0},{3,1},{2,2},{1,3},{0,3},{-1,3},{-2,2},{-3,1},{-3,0},{-3,-1},{-2,-2},{-1,-3}};
+    
+    bool brighter = true, darker = true;
+    for(int i=0; i<16; i++) {
+        unsigned char val = img.data[(y + circle_offsets[i][1]) * img.cols + (x + circle_offsets[i][0])];
+        if (val <= p + threshold) brighter = false;
+        if (val >= p - threshold) darker = false;
+        if (!brighter && !darker) break;
+    }
+    return brighter || darker;
+}
+
+int calculateCornerScore(const Image& img, int cx, int cy) {
+    // Bounds check to prevent segfaults on the edge of the image
+    if (cx < 3 || cy < 3 || cx >= img.cols - 3 || cy >= img.rows - 3) return 0;
+    
+    int score = 0;
+    int center_val = img.data[cy * img.cols + cx];
+    
+    // Sum the contrast of the 5x5 patch surrounding the corner
+    for (int dy = -2; dy <= 2; dy++) {
+        for (int dx = -2; dx <= 2; dx++) {
+            if (dx == 0 && dy == 0) continue;
+            int val = img.data[(cy + dy) * img.cols + (cx + dx)];
+            score += std::abs(val - center_val);
+        }
+    }
+    return score;
+}
+
+void applyGridNMS(const Image& img, const std::vector<KeyPoint>& raw_kps, std::vector<KeyPoint>& filtered_kps, int cell_size) {
+    // 1. Calculate how many grid cells cover our image
+    int grid_cols = (img.cols / cell_size) + 1;
+    int grid_rows = (img.rows / cell_size) + 1;
+
+    // 2. Create the Grid (Tracking the champion of each cell)
+    std::vector<std::vector<KeyPoint>> grid_best_kp(grid_rows, std::vector<KeyPoint>(grid_cols));
+    std::vector<std::vector<int>> grid_best_score(grid_rows, std::vector<int>(grid_cols, -1));
+
+    // 3. The Battle Royale
+    for (const auto& kp : raw_kps) {
+        int gx = kp.x / cell_size;
+        int gy = kp.y / cell_size;
+
+        if (gx < 0 || gx >= grid_cols || gy < 0 || gy >= grid_rows) continue;
+
+        // Score the raw point
+        int score = calculateCornerScore(img, kp.x, kp.y);
+
+        // If it's the strongest corner seen in this specific cell so far, it takes the throne
+        if (score > grid_best_score[gy][gx]) {
+            grid_best_score[gy][gx] = score;
+            grid_best_kp[gy][gx] = kp;
+        }
+    }
+
+    // 4. Collect the Champions
+    filtered_kps.clear();
+    for (int gy = 0; gy < grid_rows; gy++) {
+        for (int gx = 0; gx < grid_cols; gx++) {
+            // Check the score threshold to ensure the cell wasn't just filled with flat noise
+            // 150 is a strong baseline. Raise it to 200 if you still get shimmer.
+            if (grid_best_score[gy][gx] > 150) { 
+                filtered_kps.push_back(grid_best_kp[gy][gx]);
+            }
+        }
+    }
+}
+
 void detectFAST(const Image& img, std::vector<KeyPoint>& kps, int threshold, bool nonmax) {
     kps.clear();
-    for (int y = 3; y < img.rows - 3; y++) {
-        for (int x = 3; x < img.cols - 3; x++) {
-            unsigned char p = img.data[y * img.cols + x];
-            int count = 0;
-            int circle_offsets[16][2] = {{0,-3},{1,-3},{2,-2},{3,-1},{3,0},{3,1},{2,2},{1,3},{0,3},{-1,3},{-2,2},{-3,1},{-3,0},{-3,-1},{-2,-2},{-1,-3}};
-            
-            bool brighter = true, darker = true;
-            for(int i=0; i<16; i++) {
-                unsigned char val = img.data[(y + circle_offsets[i][1]) * img.cols + (x + circle_offsets[i][0])];
-                if (val <= p + threshold) brighter = false;
-                if (val >= p - threshold) darker = false;
-                if (!brighter && !darker) break;
+    for (int y = 16; y < img.rows - 16; y++) {
+        for (int x = 16; x < img.cols - 16; x++) {
+            if (isFASTCorner(img, x, y, threshold)) {
+                kps.push_back({(float)x, (float)y, 0, 0, 0});
             }
-            if (brighter || darker) {
-                kps.push_back({(float)x, (float)y, 0, 0});
+        }
+    }
+}
+
+void extractFeaturesGrid(const Image& img, std::vector<KeyPoint>& kps, int threshold) {
+    kps.clear();
+    const int CELL_SIZE = 30;
+    int grid_cols = img.cols / CELL_SIZE;
+    int grid_rows = img.rows / CELL_SIZE;
+    
+    for(int gy = 0; gy < grid_rows; gy++) {
+        for(int gx = 0; gx < grid_cols; gx++) {
+            int cell_start_x = gx * CELL_SIZE;
+            int cell_start_y = gy * CELL_SIZE;
+            
+            int best_score = -1;
+            KeyPoint best_kp;
+            bool found_corner_in_cell = false;
+
+            for(int y = std::max(16, cell_start_y); y < std::min(img.rows - 16, cell_start_y + CELL_SIZE); y++) {
+                for(int x = std::max(16, cell_start_x); x < std::min(img.cols - 16, cell_start_x + CELL_SIZE); x++) {
+                    if(isFASTCorner(img, x, y, threshold)) {
+                        int score = calculateCornerScore(img, x, y);
+                        if(score > best_score) {
+                            best_score = score;
+                            best_kp.x = (float)x;
+                            best_kp.y = (float)y;
+                            best_kp.response = (float)score;
+                            found_corner_in_cell = true;
+                        }
+                    }
+                }
+            }
+            if(found_corner_in_cell && best_score > 150) { 
+                kps.push_back(best_kp);
             }
         }
     }
@@ -216,6 +327,126 @@ void matchDescriptorsGrid(const std::vector<KeyPoint>& kps1, const std::vector<D
         }
         if (best_idx != -1 && best_dist < 45) {
             matches.push_back({best_idx, i});
+        }
+    }
+}
+
+void resizeBilinear(const Image& src, Image& dst) {
+    float x_ratio = ((float)(src.cols - 1)) / dst.cols;
+    float y_ratio = ((float)(src.rows - 1)) / dst.rows;
+
+    for (int i = 0; i < dst.rows; i++) {
+        for (int j = 0; j < dst.cols; j++) {
+            // Calculate exact sub-pixel source coordinates
+            float x = j * x_ratio;
+            float y = i * y_ratio;
+            
+            // Get the integer coordinates of the 4 surrounding pixels
+            int x_floor = (int)x;
+            int y_floor = (int)y;
+            int x_ceil = std::min(x_floor + 1, src.cols - 1);
+            int y_ceil = std::min(y_floor + 1, src.rows - 1);
+
+            // Calculate the fractional distances
+            float x_diff = x - x_floor;
+            float y_diff = y - y_floor;
+
+            // Retrieve the 4 surrounding pixel values using the Image::at() method
+            uint8_t a = src.at(y_floor, x_floor);
+            uint8_t b = src.at(y_floor, x_ceil);
+            uint8_t c = src.at(y_ceil, x_floor);
+            uint8_t d = src.at(y_ceil, x_ceil);
+
+            // Perform Bilinear Interpolation
+            float top = a * (1.0f - x_diff) + b * x_diff;
+            float bottom = c * (1.0f - x_diff) + d * x_diff;
+            dst.at(i, j) = (uint8_t)(top * (1.0f - y_diff) + bottom * y_diff);
+        }
+    }
+}
+
+FeatureExtractor::FeatureExtractor() {
+    mvScaleFactor.resize(nLevels);
+    mvInvScaleFactor.resize(nLevels);
+    mvLevelSigma2.resize(nLevels);
+    mvInvLevelSigma2.resize(nLevels);
+
+    mvScaleFactor[0] = 1.0f;
+    mvInvScaleFactor[0] = 1.0f;
+    mvLevelSigma2[0] = 1.0f;
+    mvInvLevelSigma2[0] = 1.0f;
+
+    for (int i = 1; i < nLevels; i++) {
+        mvScaleFactor[i] = mvScaleFactor[i - 1] * scaleFactor;
+        mvInvScaleFactor[i] = 1.0f / mvScaleFactor[i];
+        mvLevelSigma2[i] = mvScaleFactor[i] * mvScaleFactor[i];
+        mvInvLevelSigma2[i] = 1.0f / mvLevelSigma2[i];
+    }
+}
+
+void FeatureExtractor::computePyramid(const Image& base_img, std::vector<Image>& imagePyramid) {
+    imagePyramid.resize(nLevels);
+    mvImageMemory.resize(nLevels);
+    
+    imagePyramid[0] = base_img;
+    // Level 0 doesn't need to own memory if base_img is managed elsewhere
+
+    for (int level = 1; level < nLevels; level++) {
+        float scale = mvInvScaleFactor[level];
+        int scaled_w = (int)std::round(base_img.cols * scale);
+        int scaled_h = (int)std::round(base_img.rows * scale);
+        
+        // Allocate memory for this level
+        mvImageMemory[level].resize(scaled_w * scaled_h);
+        
+        // Set up the Image wrapper
+        imagePyramid[level].data = mvImageMemory[level].data();
+        imagePyramid[level].cols = scaled_w;
+        imagePyramid[level].rows = scaled_h;
+        imagePyramid[level].stride = scaled_w;
+
+        resizeBilinear(imagePyramid[level - 1], imagePyramid[level]);
+    }
+}
+
+void FeatureExtractor::extract(const Image& base_img, std::vector<KeyPoint>& all_kps, std::vector<Descriptor>& all_descs) {
+    all_kps.clear();
+    all_descs.clear();
+
+    // 0. Pre-filter Level 0 to kill ISO noise
+    mvBlurredImage.resize(base_img.cols * base_img.rows);
+    Image blurred_img = base_img;
+    blurred_img.data = mvBlurredImage.data();
+    applyLowPassFilter(base_img, blurred_img);
+
+    std::vector<Image> imagePyramid;
+    computePyramid(blurred_img, imagePyramid);
+
+    for (int level = 0; level < nLevels; level++) {
+        std::vector<KeyPoint> level_kps;
+        std::vector<Descriptor> level_descs;
+        
+        // 1. Run raw FAST extraction
+        std::vector<KeyPoint> raw_kps;
+        detectFAST(imagePyramid[level], raw_kps, 20, true);
+
+        // 2. Cull the herd (Spatial Grid NMS)
+        applyGridNMS(imagePyramid[level], raw_kps, level_kps, 30);
+
+        // 3. Compute descriptors on the survivors
+        computeORB(imagePyramid[level], level_kps, level_descs);
+
+        // 3. Project coordinates back to Level 0
+        for (size_t i = 0; i < level_kps.size(); i++) {
+            KeyPoint kp = level_kps[i];
+            
+            // Multiply by the scale factor to return to Level 0 coordinates
+            kp.x = kp.x * mvScaleFactor[level];
+            kp.y = kp.y * mvScaleFactor[level];
+            kp.octave = level;
+
+            all_kps.push_back(kp);
+            all_descs.push_back(level_descs[i]);
         }
     }
 }

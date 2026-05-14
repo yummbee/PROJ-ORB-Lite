@@ -60,6 +60,8 @@ bool Vocabulary::loadFromTextFile(const std::string& filename) {
 
     std::string line;
     std::getline(f, line);
+    if(line.empty()) return false;
+    
     std::stringstream ss(line);
     int k, L, weighting, scoring;
     ss >> k >> L >> weighting >> scoring;
@@ -72,11 +74,12 @@ bool Vocabulary::loadFromTextFile(const std::string& filename) {
     m_nodes.clear();
     m_words.clear();
 
+    // First pass: Load all nodes
     while(std::getline(f, line)) {
         if(line.empty()) continue;
         std::stringstream ss2(line);
-        int id, parent, is_word;
-        ss2 >> id >> parent >> is_word;
+        int id, parent;
+        ss2 >> id >> parent;
         
         if(id >= (int)m_nodes.size()) m_nodes.resize(id + 1);
         
@@ -84,27 +87,115 @@ bool Vocabulary::loadFromTextFile(const std::string& filename) {
         n.id = id;
         n.parent = parent;
         
+        // Descriptor: 32 bytes (uint8_t)
         uint8_t* p_desc = (uint8_t*)n.descriptor.val;
         for(int i=0; i<32; i++) {
             int v;
-            ss2 >> v;
+            if(!(ss2 >> v)) break;
             p_desc[i] = (uint8_t)v;
         }
         
-        ss2 >> n.weight;
+        if(!(ss2 >> n.weight)) n.weight = 0;
         
-        if(id != 0 && parent >= 0 && parent != id) {
+        if(id != 0 && parent >= 0 && parent < (int)m_nodes.size()) {
             m_nodes[parent].children.push_back(id);
         }
 
-        if(is_word) {
-            WordId wid = m_words.size();
-            n.word_id = wid;
-            m_words.push_back(&n);
+
+    }
+    
+    // Second pass: Identify words (leaves)
+    for (size_t i = 0; i < m_nodes.size(); i++) {
+        if (m_nodes[i].children.empty()) {
+            m_nodes[i].word_id = m_words.size();
+            m_words.push_back(&m_nodes[i]);
         }
     }
     
     std::cout << "Vocabulary loaded: " << m_nodes.size() << " nodes, " << m_words.size() << " words." << std::endl;
+    return true;
+}
+
+bool Vocabulary::saveToBinaryFile(const std::string& filename) {
+    std::ofstream f(filename.c_str(), std::ios::binary);
+    if(!f.is_open()) return false;
+
+    // Header
+    uint32_t k = (uint32_t)m_k;
+    uint32_t L = (uint32_t)m_L;
+    uint32_t weighting = (uint32_t)m_weighting;
+    uint32_t scoring = (uint32_t)m_scoring;
+    uint32_t num_nodes = (uint32_t)m_nodes.size();
+    
+    f.write((char*)&k, 4);
+    f.write((char*)&L, 4);
+    f.write((char*)&weighting, 4);
+    f.write((char*)&scoring, 4);
+    f.write((char*)&num_nodes, 4);
+
+    for(const auto& n : m_nodes) {
+        f.write((char*)&n.id, sizeof(NodeId));
+        f.write((char*)&n.parent, sizeof(NodeId));
+        f.write((char*)&n.weight, sizeof(WordValue));
+        
+        uint32_t num_children = (uint32_t)n.children.size();
+        f.write((char*)&num_children, 4);
+        for(NodeId cid : n.children) {
+            f.write((char*)&cid, sizeof(NodeId));
+        }
+        
+        f.write((char*)n.descriptor.val, 32);
+    }
+    
+    std::cout << "Vocabulary saved to binary: " << filename << std::endl;
+    return true;
+}
+
+bool Vocabulary::loadFromBinaryFile(const std::string& filename) {
+    std::ifstream f(filename.c_str(), std::ios::binary);
+    if(!f.is_open()) return false;
+
+    uint32_t k, L, weighting, scoring, num_nodes;
+    f.read((char*)&k, 4);
+    f.read((char*)&L, 4);
+    f.read((char*)&weighting, 4);
+    f.read((char*)&scoring, 4);
+    f.read((char*)&num_nodes, 4);
+
+    m_k = k;
+    m_L = L;
+    m_weighting = (WeightingType)weighting;
+    m_scoring = (ScoringType)scoring;
+
+    m_nodes.clear();
+    m_nodes.resize(num_nodes);
+    m_words.clear();
+
+    for(uint32_t i=0; i<num_nodes; i++) {
+        Node& n = m_nodes[i];
+        f.read((char*)&n.id, sizeof(NodeId));
+        f.read((char*)&n.parent, sizeof(NodeId));
+        f.read((char*)&n.weight, sizeof(WordValue));
+        
+        uint32_t num_children;
+        f.read((char*)&num_children, 4);
+        n.children.resize(num_children);
+        for(uint32_t j=0; j<num_children; j++) {
+            f.read((char*)&n.children[j], sizeof(NodeId));
+        }
+        
+        f.read((char*)n.descriptor.val, 32);
+    }
+    
+    // Identify words
+    for (size_t i = 0; i < m_nodes.size(); i++) {
+        if (m_nodes[i].children.empty() && m_nodes[i].weight > 0) {
+            m_nodes[i].word_id = m_words.size();
+            m_words.push_back(&m_nodes[i]);
+        }
+    }
+
+    std::cout << "Vocabulary loaded (binary): " << m_nodes.size() << " nodes, " << m_words.size() << " words." << std::endl;
     return true;
 }
 

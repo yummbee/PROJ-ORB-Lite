@@ -11,8 +11,11 @@ KeyFrameDatabase::KeyFrameDatabase(const Vocabulary& voc) : mpVoc(&voc) {
 
 void KeyFrameDatabase::add(KeyFrame* pKF) {
     std::unique_lock<std::mutex> lock(mMutex);
+    // For every word detected in this KeyFrame...
     for(auto it = pKF->bowVec.begin(); it != pKF->bowVec.end(); it++) {
-        mvInvertedFile[it->first].push_back(pKF);
+        WordId wid = it->first;
+        // Add this KeyFrame to the list of frames that contain this word
+        mvInvertedFile[wid].push_back(pKF);
     }
 }
 
@@ -94,7 +97,7 @@ std::vector<KeyFrame*> KeyFrameDatabase::detectRelocalizationCandidates(const Bo
 }
 
 std::vector<KeyFrame*> KeyFrameDatabase::detectLoopCandidates(KeyFrame* pKF, double minScore) {
-    std::vector<int> kfShareCount(10000, 0);
+    std::unordered_map<KeyFrame*, int> kfShareCount;
     std::set<KeyFrame*> candidateSet;
     std::vector<KeyFrame*> candidates;
     
@@ -104,15 +107,18 @@ std::vector<KeyFrame*> KeyFrameDatabase::detectLoopCandidates(KeyFrame* pKF, dou
             WordId wid = it->first;
             if(wid >= mvInvertedFile.size()) continue;
             for(KeyFrame* pCandidate : mvInvertedFile[wid]) {
-                if(std::abs(pCandidate->id - pKF->id) < 20) continue;
-                if(pCandidate->id >= (int)kfShareCount.size()) kfShareCount.resize(pCandidate->id + 1000, 0);
-                kfShareCount[pCandidate->id]++;
+                // Ensure unique tracking via memory address, not potentially colliding IDs
+                if(pCandidate->pMap == pKF->pMap && std::abs(pCandidate->id - pKF->id) < 10) continue;
+                
+                kfShareCount[pCandidate]++;
                 candidateSet.insert(pCandidate);
             }
         }
     }
     
-    if(candidateSet.empty()) return candidates;
+    if(candidateSet.empty()) {
+        return candidates;
+    }
 
     std::vector<std::pair<double, KeyFrame*>> scoreKFs;
     for(KeyFrame* pCandidate : candidateSet) {

@@ -60,6 +60,31 @@ struct Quaternion {
     double w, x, y, z;
 };
 
+struct Sim3 {
+    Quaternion q;
+    Vec3 t;
+    double s;
+
+    // Transform a point: P' = s * R * P + t
+    // Note: We need qToMat33 and mat33MulVec3 which are defined later.
+    // So we'll define the method body after those functions.
+    Vec3 transform(const Vec3& p) const;
+};
+
+inline double distance_between(const Vec3& p1, const Vec3& p2) {
+    double dx = p1.x - p2.x;
+    double dy = p1.y - p2.y;
+    double dz = p1.z - p2.z;
+    return std::sqrt(dx*dx + dy*dy + dz*dz);
+}
+
+inline double calculate_angle_diff(const Quaternion& q1, const Quaternion& q2) {
+    double d = q1.w * q2.w + q1.x * q2.x + q1.y * q2.y + q1.z * q2.z;
+    if (d < 0) d = -d;
+    if (d > 1.0) d = 1.0;
+    return 2.0 * std::acos(d);
+}
+
 // --- Geometric Primitives ---
 
 inline double dot(const Vec3& a, const Vec3& b) {
@@ -331,6 +356,12 @@ inline Mat4x4 invert4x4_copy(const Mat4x4& in) {
     Mat4x4 out;
     invert4x4(in, out);
     return out;
+}
+
+inline Vec3 Sim3::transform(const Vec3& p) const {
+    Mat3x3 R = qToMat33(q);
+    Vec3 Rp = mat33MulVec3(R, p);
+    return {s * Rp.x + t.x, s * Rp.y + t.y, s * Rp.z + t.z};
 }
 
 inline Mat3x3 mat33Transpose(const Mat3x3& a) {

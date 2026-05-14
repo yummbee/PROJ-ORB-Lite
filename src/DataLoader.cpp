@@ -60,7 +60,11 @@ void DataLoader::loadImu() {
         // Sensor IMU: X=Right, Y=Forward, Z=Up
         // Mapping: CamX = ImuX, CamY = -ImuZ, CamZ = ImuY
         Vec3 acc_cam = {a.v.x, (float)-a.v.z, a.v.y};
-        Vec3 gyro_cam = {gyros[g_idx].v.x, (float)-gyros[g_idx].v.z, gyros[g_idx].v.y};
+        Vec3 gyro_cam = {gyros[g_idx].v.x, (float)-gyros[g_idx].v.z,
+                         gyros[g_idx].v.y};
+        
+        // Gyroscope from iOS is already in rad/s, no need to convert!
+        
         allImu_.push_back({acc_cam, gyro_cam, a.t});
     }
 }

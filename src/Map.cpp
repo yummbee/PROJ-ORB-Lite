@@ -1,12 +1,13 @@
 #include "Map.hpp"
 #include <fstream>
 #include <cmath>
+#include <iostream>
 
 namespace orb_lite {
 
 int Map::addPoint(const Vec3& pos, const Descriptor& desc, int refKfId) {
     int id = (int)points.size();
-    MapPoint mp = {pos, desc, 1, refKfId};
+    MapPoint mp = {pos, desc, 1, 1, refKfId};
     mp.pMap = this;
     points.push_back(mp);
     return id;
@@ -40,13 +41,26 @@ void Map::load(const char* filename) {
 
 void Map::saveCSV(const char* filename) const {
     std::ofstream f(filename);
-    f << "type,x,y,z" << std::endl;
+    f << "type,x,y,z,nFound,nVisible" << std::endl;
+    int exported_count = 0;
     for (const auto& p : points) {
-        f << "point," << p.pos.x << "," << p.pos.y << "," << p.pos.z << std::endl;
+        // --- RULE 1: No Bad Points ---
+        if (p.isBad) continue;
+
+        // --- RULE 2: The Structural Persistence Test ---
+        if (p.nFound < 15) continue;
+
+        f << "point," << p.pos.x << "," << p.pos.y << "," << p.pos.z << "," 
+          << p.nFound << "," << p.nVisible << std::endl;
+        exported_count++;
     }
     for (const auto& kf : keyframes) {
-        f << "kf," << kf.pose.m[3] << "," << kf.pose.m[7] << "," << kf.pose.m[11] << std::endl;
+        f << "kf," << kf.pose.m[3] << "," << kf.pose.m[7] << "," << kf.pose.m[11] << ",0,0" << std::endl;
     }
+    f.close();
+    std::cout << "-> Saved " << filename << " (" << exported_count 
+              << " structural points exported. " 
+              << (points.size() - exported_count) << " noise points filtered.)\n";
 }
 
 bool triangulate(const Vec3& o1, const Vec3& d1, const Vec3& o2, const Vec3& d2, Vec3& p) {

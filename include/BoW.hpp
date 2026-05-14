@@ -59,6 +59,8 @@ public:
     ~Vocabulary();
 
     bool loadFromTextFile(const std::string& filename);
+    bool loadFromBinaryFile(const std::string& filename);
+    bool saveToBinaryFile(const std::string& filename);
     
     // Transform features to BowVector and FeatureVector
     void transform(const std::vector<Descriptor>& features, BowVector& v, FeatureVector& fv, int levels_up) const;

@@ -1,19 +1,8 @@
--- Configuring done (0.1s)
--- Generating done (0.0s)
--- Build files have been written to: /Users/jordanwright/Documents/GitHub/PROJ-ORB-Lite/build
-[ 44%] Built target orb_lite
-[ 52%] Built target test_jacobian
-[ 60%] Built target orb_lite_test
-[ 76%] Built target test_imu
-[ 76%] Built target test_ba
-[ 84%] Built target test_vision
-[ 92%] Built target test_bootstrapping
-[100%] Built target test_mapping
---- Running test_mapping on data/2026_05_13_11_51_58/ ---
-Loading Vocabulary from Vocabulary/ORBvoc.txt...
-Vocabulary loaded: 1081983 nodes, 1077216 words.
+Loading Vocabulary from ../Vocabulary/ORBvoc.txt...
+Vocabulary loaded (binary): 1081983 nodes, 89056 words.
+Success: Loaded binary vocabulary cache.
 Atlas: Created new Map (1 total)
-Starting Atlas SLAM Test: data/2026_05_13_11_51_58/
+Starting Atlas SLAM Test: ../data/2026_05_13_11_51_58/
 DataLoader: Frame 0, IMU samples: 24 timestamp: 1.77867e+09
 Tracking IMU Calibrating... 0.254s
 DataLoader: Frame 1, IMU samples: 3 timestamp: 1.77867e+09
@@ -122,8 +111,8 @@ DataLoader: Frame 52, IMU samples: 3 timestamp: 1.77867e+09
 Tracking IMU Calibrating... 1.987s
 DataLoader: Frame 53, IMU samples: 3 timestamp: 1.77867e+09
 Tracking IMU Calibrated over 188 samples. 
- ba=[0.0900308,-0.00249501,-0.00284467]
- bg=[0.00404292,-0.00134358,-0.00273752]
+ ba=[-0.00249501,-0.0900308,-0.00284467]
+ bg=[-0.00134358,-0.00404292,-0.00273752]
 Init: Locked Frame A.
 DataLoader: Frame 54, IMU samples: 3 timestamp: 1.77867e+09
 DataLoader: Frame 55, IMU samples: 3 timestamp: 1.77867e+09
@@ -176,26 +165,2171 @@ DataLoader: Frame 98, IMU samples: 3 timestamp: 1.77867e+09
 DataLoader: Frame 99, IMU samples: 3 timestamp: 1.77867e+09
 DataLoader: Frame 100, IMU samples: 3 timestamp: 1.77867e+09
 DataLoader: Frame 101, IMU samples: 3 timestamp: 1.77867e+09
-Init: Triangulation failed (bad geometry). Resetting Frame A.
+Init: Triangulation successful with baseline 0.0508156m and 53 valid points.
+Tracking: INITIALIZED! Map=53 baseline=0.0508156m
 DataLoader: Frame 102, IMU samples: 4 timestamp: 1.77867e+09
-Init: Locked Frame A.
+searchMapPoints: map_size=53 matches=36
+[Yaw Delta] IMU: +0.0129692° | VO Correction: -0.174743°
+Tracking: Optimized pos=[0.0368312,0.00961416,0.00396802] inliers=36
+localBundleAdjustment: KeyFrame 0 is in localKFs (should be fixed)
+Local BA finished. Local KFs: 2 Local MPs: 93
+Tracking: Running Loop Detection...
+Loop Detection: No candidates found for KF 2
+Tracking: KeyFrame inserted. Matches=49 Triangulated=40 Total Map=93
 DataLoader: Frame 103, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=93 matches=58
+[Yaw Delta] IMU: +0.0222012° | VO Correction: -0.063097°
+Tracking: Optimized pos=[0.0325418,0.0107425,0.00532522] inliers=49
 DataLoader: Frame 104, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=93 matches=55
+[Yaw Delta] IMU: -0.0552302° | VO Correction: +0.0240056°
+Tracking: Optimized pos=[0.0328445,0.0103732,0.00167021] inliers=46
 DataLoader: Frame 105, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=93 matches=59
+[Yaw Delta] IMU: -0.00959517° | VO Correction: +0.00342465°
+Tracking: Optimized pos=[0.037055,0.0048106,0.0027226] inliers=52
 DataLoader: Frame 106, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=93 matches=55
+[Yaw Delta] IMU: +0.0160104° | VO Correction: -0.0444244°
+Tracking: Optimized pos=[0.035337,0.00443838,-8.98748e-06] inliers=50
 DataLoader: Frame 107, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=93 matches=60
+[Yaw Delta] IMU: +0.0142481° | VO Correction: -0.018288°
+Tracking: Optimized pos=[0.0348634,0.00907279,-0.00481418] inliers=49
 DataLoader: Frame 108, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=93 matches=62
+[Yaw Delta] IMU: -0.0415512° | VO Correction: -0.123186°
+Tracking: Optimized pos=[0.0279628,-0.0125787,-0.00734268] inliers=55
 DataLoader: Frame 109, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=93 matches=58
+[Yaw Delta] IMU: -0.0434666° | VO Correction: +0.173959°
+Tracking: Optimized pos=[0.0306068,-0.015387,-0.00402327] inliers=49
 DataLoader: Frame 110, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=93 matches=64
+[Yaw Delta] IMU: +0.0104468° | VO Correction: +0.0428972°
+Tracking: Optimized pos=[0.0248392,-0.0222018,-0.00129303] inliers=55
 DataLoader: Frame 111, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=93 matches=58
+[Yaw Delta] IMU: -0.0187537° | VO Correction: +0.12544°
+Tracking: Optimized pos=[0.0232825,-0.0225922,0.00393554] inliers=47
 DataLoader: Frame 112, IMU samples: 4 timestamp: 1.77867e+09
-Init: Waiting for baseline... 0.0221236m
+searchMapPoints: map_size=93 matches=61
+[Yaw Delta] IMU: +0.0191153° | VO Correction: -0.143256°
+Tracking: Optimized pos=[0.0292111,0.00046264,-0.00370268] inliers=53
+Local BA finished. Local KFs: 3 Local MPs: 152
+Tracking: Skipping Loop Detection for KeyFrame 3
+Tracking: KeyFrame inserted. Matches=62 Triangulated=59 Total Map=152
 DataLoader: Frame 113, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=152 matches=86
+[Yaw Delta] IMU: +0.0390217° | VO Correction: -0.0753361°
+Tracking: Optimized pos=[0.0310881,-0.00172313,-0.000813876] inliers=79
 DataLoader: Frame 114, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=152 matches=91
+[Yaw Delta] IMU: +0.0373782° | VO Correction: +0.0784489°
+Tracking: Optimized pos=[0.0319494,0.00546985,0.000461285] inliers=82
 DataLoader: Frame 115, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=152 matches=86
+[Yaw Delta] IMU: +0.0189636° | VO Correction: +0.108974°
+Tracking: Optimized pos=[0.0320671,0.00851369,0.000813191] inliers=74
 DataLoader: Frame 116, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=152 matches=85
+[Yaw Delta] IMU: +0.0107524° | VO Correction: -0.058068°
+Tracking: Optimized pos=[0.0310233,0.00143501,-0.00176806] inliers=75
 DataLoader: Frame 117, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=152 matches=77
+[Yaw Delta] IMU: +0.0509715° | VO Correction: -0.0380961°
+Tracking: Optimized pos=[0.0337706,0.00639802,-9.82194e-05] inliers=63
 DataLoader: Frame 118, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=152 matches=79
+[Yaw Delta] IMU: +0.0341655° | VO Correction: -0.0594175°
+Tracking: Optimized pos=[0.0322358,0.00938796,0.00182893] inliers=64
 DataLoader: Frame 119, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=152 matches=75
+[Yaw Delta] IMU: +0.0191744° | VO Correction: -0.121469°
+Tracking: Optimized pos=[0.0332477,0.00336555,1.30041e-05] inliers=63
 DataLoader: Frame 120, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=152 matches=74
+[Yaw Delta] IMU: +0.0255096° | VO Correction: -0.0312198°
+Tracking: Optimized pos=[0.0334729,0.00232841,4.61445e-05] inliers=66
 DataLoader: Frame 121, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=152 matches=75
+[Yaw Delta] IMU: +0.0167783° | VO Correction: +0.0419256°
+Tracking: Optimized pos=[0.0338221,0.00532982,0.00243337] inliers=64
+DataLoader: Frame 122, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=152 matches=77
+[Yaw Delta] IMU: +0.0345204° | VO Correction: +0.0611628°
+Tracking: Optimized pos=[0.0333521,0.00546598,0.000379762] inliers=67
+Local BA finished. Local KFs: 3 Local MPs: 181
+Tracking: Skipping Loop Detection for KeyFrame 4
+Tracking: KeyFrame inserted. Matches=65 Triangulated=48 Total Map=200
+DataLoader: Frame 123, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=200 matches=91
+[Yaw Delta] IMU: +0.0830274° | VO Correction: +0.037675°
+Tracking: Optimized pos=[0.0321353,0.00344389,-0.0018381] inliers=85
+DataLoader: Frame 124, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=200 matches=92
+[Yaw Delta] IMU: +0.0737905° | VO Correction: +0.033292°
+Tracking: Optimized pos=[0.0316865,0.00522338,-0.00335168] inliers=78
+DataLoader: Frame 125, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=200 matches=88
+[Yaw Delta] IMU: +0.122813° | VO Correction: -0.0683862°
+Tracking: Optimized pos=[0.0307732,0.00608812,-0.00277314] inliers=74
+DataLoader: Frame 126, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=200 matches=91
+[Yaw Delta] IMU: +0.15429° | VO Correction: +0.00277768°
+Tracking: Optimized pos=[0.0278733,0.00352437,-0.00466028] inliers=78
+DataLoader: Frame 127, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=200 matches=94
+[Yaw Delta] IMU: +0.246848° | VO Correction: +0.133615°
+Tracking: Optimized pos=[0.0252031,0.014649,-0.00437129] inliers=76
+DataLoader: Frame 128, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=200 matches=83
+[Yaw Delta] IMU: +0.254172° | VO Correction: -0.0393484°
+Tracking: Optimized pos=[0.0157802,0.0260911,-0.00615589] inliers=59
+DataLoader: Frame 129, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=200 matches=88
+[Yaw Delta] IMU: +0.142783° | VO Correction: +0.411762°
+Tracking: Optimized pos=[0.0146417,0.0336276,-0.00305366] inliers=59
+DataLoader: Frame 130, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=200 matches=89
+[Yaw Delta] IMU: +0.0292895° | VO Correction: -0.0644967°
+Tracking: Optimized pos=[0.0157008,0.0194627,-0.00861906] inliers=61
+DataLoader: Frame 131, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=200 matches=90
+[Yaw Delta] IMU: +0.0333606° | VO Correction: +0.0397789°
+Tracking: Optimized pos=[0.0187119,0.0180357,-0.0103832] inliers=61
+DataLoader: Frame 132, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=200 matches=69
+[Yaw Delta] IMU: -0.0487467° | VO Correction: -0.0190083°
+Tracking: Optimized pos=[0.0197098,0.0155956,-0.0117758] inliers=45
+Local BA finished. Local KFs: 2 Local MPs: 158
+Tracking: Running Loop Detection...
+Loop Detection: No candidates found for KF 5
+Tracking: KeyFrame inserted. Matches=72 Triangulated=64 Total Map=264
+DataLoader: Frame 133, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=264 matches=114
+[Yaw Delta] IMU: -0.146856° | VO Correction: +0.096205°
+Tracking: Optimized pos=[0.0204457,0.00903335,-0.0148502] inliers=81
+DataLoader: Frame 134, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=264 matches=101
+[Yaw Delta] IMU: -0.0659674° | VO Correction: -0.424078°
+Tracking: Optimized pos=[0.0217015,0.000464307,-0.0189303] inliers=68
+DataLoader: Frame 135, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=264 matches=90
+[Yaw Delta] IMU: -0.286511° | VO Correction: -0.122153°
+Tracking: Optimized pos=[0.0258768,-0.0102796,-0.021001] inliers=63
+DataLoader: Frame 136, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=264 matches=91
+[Yaw Delta] IMU: -0.533933° | VO Correction: -0.0682512°
+Tracking: Optimized pos=[0.0339445,-0.0408089,-0.0311968] inliers=57
+DataLoader: Frame 137, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=264 matches=93
+[Yaw Delta] IMU: -0.543005° | VO Correction: +0.102742°
+Tracking: Optimized pos=[0.0441992,-0.0625567,-0.0419549] inliers=32
+DataLoader: Frame 138, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=264 matches=97
+[Yaw Delta] IMU: -0.255969° | VO Correction: -0.103679°
+Tracking: Optimized pos=[0.0522748,-0.0646178,-0.0458168] inliers=31
+DataLoader: Frame 139, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=264 matches=98
+[Yaw Delta] IMU: +0.0422923° | VO Correction: -0.719165°
+Tracking: Optimized pos=[0.0553822,-0.09575,-0.0522325] inliers=33
+DataLoader: Frame 140, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=264 matches=103
+[Yaw Delta] IMU: +0.12271° | VO Correction: +0.0333702°
+Tracking: Optimized pos=[0.0524268,-0.105694,-0.0578659] inliers=35
+Local BA finished. Local KFs: 2 Local MPs: 144
+Tracking: Skipping Loop Detection for KeyFrame 6
+Tracking: KeyFrame inserted. Matches=61 Triangulated=56 Total Map=320
+DataLoader: Frame 141, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=320 matches=89
+[Yaw Delta] IMU: +0.160276° | VO Correction: +0.123807°
+Tracking: Optimized pos=[0.0501977,-0.106836,-0.064882] inliers=42
+DataLoader: Frame 142, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=320 matches=100
+[Yaw Delta] IMU: +0.163658° | VO Correction: -0.187294°
+Tracking: Optimized pos=[0.0482874,-0.114639,-0.0688204] inliers=41
+Local BA finished. Local KFs: 2 Local MPs: 140
+Tracking: Skipping Loop Detection for KeyFrame 7
+Tracking: KeyFrame inserted. Matches=60 Triangulated=53 Total Map=373
+DataLoader: Frame 143, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=373 matches=111
+[Yaw Delta] IMU: +0.178354° | VO Correction: -0.0588343°
+Tracking: Optimized pos=[0.0412876,-0.112599,-0.0675357] inliers=50
+DataLoader: Frame 144, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=373 matches=101
+[Yaw Delta] IMU: +0.182732° | VO Correction: -0.632485°
+Tracking: Optimized pos=[0.0396115,-0.112097,-0.0696726] inliers=46
+DataLoader: Frame 145, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=373 matches=86
+[Yaw Delta] IMU: -0.0420954° | VO Correction: -0.273156°
+Tracking: Optimized pos=[0.0454519,-0.0938028,-0.0385363] inliers=54
+DataLoader: Frame 146, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=373 matches=73
+[Yaw Delta] IMU: -0.051718° | VO Correction: -1.55314°
+Tracking: Optimized pos=[0.0527054,-0.104333,-0.0240517] inliers=39
+DataLoader: Frame 147, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=373 matches=85
+[Yaw Delta] IMU: -0.0610166° | VO Correction: -0.980096°
+Tracking: Optimized pos=[0.054572,-0.0778473,-0.0122655] inliers=43
+DataLoader: Frame 148, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=373 matches=98
+[Yaw Delta] IMU: -0.191146° | VO Correction: +0.141338°
+Tracking: Optimized pos=[0.0543739,-0.0768453,-0.0119401] inliers=44
+DataLoader: Frame 149, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=373 matches=89
+[Yaw Delta] IMU: -0.177746° | VO Correction: +0.422636°
+Tracking: Optimized pos=[0.059644,-0.0687385,-0.0161518] inliers=48
+DataLoader: Frame 150, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=373 matches=92
+[Yaw Delta] IMU: -0.0428101° | VO Correction: +1.31467°
+Tracking: Optimized pos=[0.0581106,-0.100431,0.00166955] inliers=61
+DataLoader: Frame 151, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=373 matches=101
+[Yaw Delta] IMU: -0.169357° | VO Correction: +0.678731°
+Tracking: Optimized pos=[0.0614765,-0.088168,-0.000257081] inliers=55
+DataLoader: Frame 152, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=373 matches=100
+[Yaw Delta] IMU: -0.266727° | VO Correction: +0.417605°
+Tracking: Optimized pos=[0.056032,-0.0860962,-0.0106045] inliers=55
+Local BA finished. Local KFs: 3 Local MPs: 192
+Tracking: Running Loop Detection...
+Loop Detection: No candidates found for KF 8
+Tracking: KeyFrame inserted. Matches=44 Triangulated=33 Total Map=406
+DataLoader: Frame 153, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=406 matches=103
+[Yaw Delta] IMU: -0.0988696° | VO Correction: +0.660933°
+Tracking: Optimized pos=[0.0486928,-0.10489,-0.0141317] inliers=56
+DataLoader: Frame 154, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=406 matches=90
+[Yaw Delta] IMU: -0.0762474° | VO Correction: +0.571125°
+Tracking: Optimized pos=[0.0569231,-0.0739366,-0.019901] inliers=49
+DataLoader: Frame 155, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=406 matches=96
+[Yaw Delta] IMU: -0.0153979° | VO Correction: -0.019814°
+Tracking: Optimized pos=[0.0477599,-0.0812245,-0.0289181] inliers=59
+DataLoader: Frame 156, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=406 matches=94
+[Yaw Delta] IMU: +0.175063° | VO Correction: +0.298288°
+Tracking: Optimized pos=[0.0389239,-0.0581645,-0.0215022] inliers=59
+DataLoader: Frame 157, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=406 matches=71
+[Yaw Delta] IMU: +0.294602° | VO Correction: +0.0491874°
+Tracking: Optimized pos=[0.0424953,-0.0440333,-0.0129868] inliers=50
+DataLoader: Frame 158, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=406 matches=88
+[Yaw Delta] IMU: +0.593058° | VO Correction: -0.29951°
+Tracking: Optimized pos=[0.0451421,-0.0284692,-0.0173934] inliers=62
+DataLoader: Frame 159, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=406 matches=81
+[Yaw Delta] IMU: +0.472203° | VO Correction: -0.303216°
+Tracking: Optimized pos=[0.0360272,-0.0293111,-0.0159873] inliers=61
+DataLoader: Frame 160, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=406 matches=85
+[Yaw Delta] IMU: +0.302451° | VO Correction: -0.621915°
+Tracking: Optimized pos=[0.0445157,-0.0339282,-0.0221203] inliers=66
+DataLoader: Frame 161, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=406 matches=90
+[Yaw Delta] IMU: +0.167421° | VO Correction: -0.165861°
+Tracking: Optimized pos=[0.0692969,-0.0290582,-0.0240805] inliers=59
+DataLoader: Frame 162, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=406 matches=78
+[Yaw Delta] IMU: +0.277251° | VO Correction: -0.367975°
+Tracking: Optimized pos=[0.0655652,-0.0347171,-0.0296957] inliers=51
+Local BA finished. Local KFs: 2 Local MPs: 124
+Tracking: Skipping Loop Detection for KeyFrame 9
+Tracking: KeyFrame inserted. Matches=42 Triangulated=34 Total Map=440
+DataLoader: Frame 163, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=440 matches=70
+[Yaw Delta] IMU: +0.161851° | VO Correction: +0.325553°
+Tracking: Optimized pos=[0.0760011,-0.0324557,-0.0324833] inliers=42
+DataLoader: Frame 164, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=440 matches=91
+[Yaw Delta] IMU: -0.118027° | VO Correction: +0.319011°
+Tracking: Optimized pos=[0.0792222,-0.0526239,-0.0391637] inliers=45
+DataLoader: Frame 165, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=440 matches=94
+[Yaw Delta] IMU: -0.0560851° | VO Correction: +0.622337°
+Tracking: Optimized pos=[0.0679612,-0.114355,-0.047689] inliers=36
+DataLoader: Frame 166, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=440 matches=78
+[Yaw Delta] IMU: -0.143251° | VO Correction: -0.419046°
+Tracking: Optimized pos=[0.0923142,-0.0224872,-0.080752] inliers=42
+DataLoader: Frame 167, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=440 matches=71
+[Yaw Delta] IMU: -0.40175° | VO Correction: +1.27171°
+Tracking: Optimized pos=[0.0893382,-0.0234997,-0.0968583] inliers=30
+DataLoader: Frame 168, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=440 matches=75
+[Yaw Delta] IMU: -0.27709° | VO Correction: +0.00592056°
+Tracking: Optimized pos=[0.0784607,-0.0125142,-0.110219] inliers=30
+DataLoader: Frame 169, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=440 matches=70
+[Yaw Delta] IMU: -0.151452° | VO Correction: -0.256774°
+Tracking: Optimized pos=[0.0683717,-0.0308869,-0.120045] inliers=30
+DataLoader: Frame 170, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=440 matches=67
+[Yaw Delta] IMU: -0.157677° | VO Correction: -1.02181°
+Tracking: Optimized pos=[0.0492765,-0.0834334,-0.14693] inliers=30
+DataLoader: Frame 171, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=440 matches=54
+[Yaw Delta] IMU: -0.204947° | VO Correction: +0.569437°
+Tracking: Optimized pos=[0.0421421,-0.0982532,-0.161235] inliers=23
+Local BA finished. Local KFs: 2 Local MPs: 97
+Tracking: Skipping Loop Detection for KeyFrame 10
+Tracking: KeyFrame inserted. Matches=43 Triangulated=21 Total Map=461
+DataLoader: Frame 172, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=461 matches=68
+[Yaw Delta] IMU: -0.152212° | VO Correction: -0.704899°
+Tracking: Optimized pos=[0.0622363,-0.0946548,-0.181233] inliers=26
+Local BA finished. Local KFs: 2 Local MPs: 99
+Tracking: Running Loop Detection...
+Loop Detection: Found 2 raw candidate(s).
+ -> Candidate KF 0 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 1 (Map 0xad7030660) yields 0 3D matches.
+Loop Detection: No valid loops found after geometric verification.
+Tracking: KeyFrame inserted. Matches=62 Triangulated=53 Total Map=514
+DataLoader: Frame 173, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=514 matches=77
+[Yaw Delta] IMU: -0.0174646° | VO Correction: -0.228175°
+Tracking: Optimized pos=[0.094943,-0.0922594,-0.182119] inliers=41
+DataLoader: Frame 174, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=514 matches=82
+[Yaw Delta] IMU: +0.143339° | VO Correction: -0.333028°
+Tracking: Optimized pos=[0.120744,-0.0885133,-0.186144] inliers=40
+DataLoader: Frame 175, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=514 matches=72
+[Yaw Delta] IMU: +0.183033° | VO Correction: -0.064942°
+Tracking: Optimized pos=[0.141107,-0.0932806,-0.193358] inliers=35
+DataLoader: Frame 176, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=514 matches=67
+[Yaw Delta] IMU: +0.306004° | VO Correction: -0.424323°
+Tracking: Optimized pos=[0.175152,-0.0923084,-0.187386] inliers=25
+DataLoader: Frame 177, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=514 matches=63
+[Yaw Delta] IMU: +0.417989° | VO Correction: -0.681247°
+Tracking: Optimized pos=[0.206015,-0.112485,-0.16755] inliers=21
+Local BA finished. Local KFs: 2 Local MPs: 110
+Tracking: Skipping Loop Detection for KeyFrame 12
+Tracking: KeyFrame inserted. Matches=38 Triangulated=31 Total Map=545
+DataLoader: Frame 178, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=545 matches=63
+[Yaw Delta] IMU: +0.208648° | VO Correction: -0.557008°
+Tracking: Optimized pos=[0.230694,-0.108755,-0.159509] inliers=33
+DataLoader: Frame 179, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=545 matches=55
+[Yaw Delta] IMU: +0.0288408° | VO Correction: -0.121556°
+Tracking: Optimized pos=[0.263053,-0.112149,-0.160652] inliers=21
+DataLoader: Frame 180, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=545 matches=76
+[Yaw Delta] IMU: -0.114361° | VO Correction: +0.00648723°
+Tracking: Optimized pos=[0.303023,-0.116665,-0.163473] inliers=22
+DataLoader: Frame 181, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=545 matches=74
+[Yaw Delta] IMU: +0.0165262° | VO Correction: -0.736361°
+Tracking: Optimized pos=[0.319435,-0.12426,-0.16514] inliers=24
+Local BA finished. Local KFs: 2 Local MPs: 99
+Tracking: Skipping Loop Detection for KeyFrame 13
+Tracking: KeyFrame inserted. Matches=44 Triangulated=43 Total Map=588
+DataLoader: Frame 182, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=588 matches=87
+[Yaw Delta] IMU: +0.109716° | VO Correction: -0.095154°
+Tracking: Optimized pos=[0.326134,-0.132157,-0.161799] inliers=42
+Local BA finished. Local KFs: 2 Local MPs: 140
+Tracking: Running Loop Detection...
+Loop Detection: Found 5 raw candidate(s).
+ -> Candidate KF 3 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 0 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 4 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 2 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 1 (Map 0xad7030660) yields 0 3D matches.
+Loop Detection: No valid loops found after geometric verification.
+Tracking: KeyFrame inserted. Matches=79 Triangulated=65 Total Map=653
+DataLoader: Frame 183, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=653 matches=97
+[Yaw Delta] IMU: -0.101772° | VO Correction: -0.199618°
+Tracking: Optimized pos=[0.337025,-0.14303,-0.163669] inliers=55
+DataLoader: Frame 184, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=653 matches=95
+[Yaw Delta] IMU: -0.43371° | VO Correction: +0.336627°
+Tracking: Optimized pos=[0.360559,-0.155197,-0.176501] inliers=50
+DataLoader: Frame 185, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=653 matches=101
+[Yaw Delta] IMU: -0.338326° | VO Correction: -0.385772°
+Tracking: Optimized pos=[0.376979,-0.167438,-0.196196] inliers=28
+DataLoader: Frame 186, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=653 matches=90
+[Yaw Delta] IMU: -0.0391012° | VO Correction: -0.97596°
+Tracking: Optimized pos=[0.383465,-0.167582,-0.209238] inliers=41
+DataLoader: Frame 187, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=653 matches=108
+[Yaw Delta] IMU: -0.345853° | VO Correction: -0.408678°
+Tracking: Optimized pos=[0.381167,-0.163278,-0.222438] inliers=43
+DataLoader: Frame 188, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=653 matches=83
+[Yaw Delta] IMU: -0.220148° | VO Correction: +0.340968°
+Tracking: Optimized pos=[0.392288,-0.152299,-0.226951] inliers=22
+DataLoader: Frame 189, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=653 matches=90
+[Yaw Delta] IMU: -0.299015° | VO Correction: -0.35244°
+Tracking: Optimized pos=[0.392832,-0.201179,-0.235797] inliers=28
+Local BA finished. Local KFs: 2 Local MPs: 154
+Tracking: Skipping Loop Detection for KeyFrame 15
+Tracking: KeyFrame inserted. Matches=60 Triangulated=55 Total Map=708
+DataLoader: Frame 190, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=708 matches=102
+[Yaw Delta] IMU: -0.514205° | VO Correction: +0.35788°
+Tracking: Optimized pos=[0.413051,-0.18676,-0.240585] inliers=45
+DataLoader: Frame 191, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=708 matches=93
+[Yaw Delta] IMU: -0.289067° | VO Correction: -0.0778032°
+Tracking: Optimized pos=[0.421455,-0.19869,-0.249111] inliers=40
+DataLoader: Frame 192, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=708 matches=109
+[Yaw Delta] IMU: -0.288615° | VO Correction: +0.725221°
+Tracking: Optimized pos=[0.431532,-0.207776,-0.231184] inliers=47
+Local BA finished. Local KFs: 2 Local MPs: 151
+Tracking: Skipping Loop Detection for KeyFrame 16
+Tracking: KeyFrame inserted. Matches=61 Triangulated=61 Total Map=769
+DataLoader: Frame 193, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=769 matches=97
+[Yaw Delta] IMU: -0.272114° | VO Correction: -0.0272136°
+Tracking: Optimized pos=[0.435394,-0.255177,-0.193307] inliers=38
+DataLoader: Frame 194, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=769 matches=104
+[Yaw Delta] IMU: -0.299139° | VO Correction: +0.808219°
+Tracking: Optimized pos=[0.441644,-0.285641,-0.151098] inliers=49
+DataLoader: Frame 195, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=769 matches=109
+[Yaw Delta] IMU: -0.330253° | VO Correction: +0.0783602°
+Tracking: Optimized pos=[0.441347,-0.303669,-0.132152] inliers=38
+Local BA finished. Local KFs: 2 Local MPs: 159
+Tracking: Running Loop Detection...
+Loop Detection: Found 6 raw candidate(s).
+ -> Candidate KF 4 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 7 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 0 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 6 (Map 0xad7030660) yields 1 3D matches.
+ -> Candidate KF 1 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 2 (Map 0xad7030660) yields 1 3D matches.
+Loop Detection: No valid loops found after geometric verification.
+Tracking: KeyFrame inserted. Matches=57 Triangulated=52 Total Map=821
+DataLoader: Frame 196, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=821 matches=134
+[Yaw Delta] IMU: -0.375234° | VO Correction: +0.374919°
+Tracking: Optimized pos=[0.470525,-0.302379,-0.118093] inliers=64
+DataLoader: Frame 197, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=821 matches=125
+[Yaw Delta] IMU: -0.382537° | VO Correction: +0.46559°
+Tracking: Optimized pos=[0.500987,-0.306635,-0.107268] inliers=54
+DataLoader: Frame 198, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=821 matches=122
+[Yaw Delta] IMU: -0.480859° | VO Correction: +0.342082°
+Tracking: Optimized pos=[0.544001,-0.309258,-0.0899163] inliers=50
+DataLoader: Frame 199, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=821 matches=120
+[Yaw Delta] IMU: -0.428363° | VO Correction: +0.00301221°
+Tracking: Optimized pos=[0.585313,-0.339105,-0.0652543] inliers=47
+Local BA finished. Local KFs: 2 Local MPs: 145
+Tracking: Skipping Loop Detection for KeyFrame 18
+Tracking: KeyFrame inserted. Matches=51 Triangulated=48 Total Map=869
+DataLoader: Frame 200, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=869 matches=152
+[Yaw Delta] IMU: -0.447974° | VO Correction: +0.206389°
+Tracking: Optimized pos=[0.618555,-0.351702,-0.0467312] inliers=66
+DataLoader: Frame 201, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=869 matches=138
+[Yaw Delta] IMU: -0.388189° | VO Correction: +0.0114164°
+Tracking: Optimized pos=[0.653781,-0.366699,-0.0290659] inliers=70
+DataLoader: Frame 202, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=869 matches=136
+[Yaw Delta] IMU: -0.323079° | VO Correction: -0.293035°
+Tracking: Optimized pos=[0.684499,-0.365346,-0.0156047] inliers=62
+Local BA finished. Local KFs: 2 Local MPs: 162
+Tracking: Skipping Loop Detection for KeyFrame 19
+Tracking: KeyFrame inserted. Matches=60 Triangulated=59 Total Map=928
+DataLoader: Frame 203, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=928 matches=141
+[Yaw Delta] IMU: -0.245472° | VO Correction: -0.168863°
+Tracking: Optimized pos=[0.714271,-0.374307,-0.000903855] inliers=66
+DataLoader: Frame 204, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=928 matches=149
+[Yaw Delta] IMU: -0.296353° | VO Correction: -0.271558°
+Tracking: Optimized pos=[0.738598,-0.381338,0.0125316] inliers=70
+DataLoader: Frame 205, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=928 matches=160
+[Yaw Delta] IMU: -0.451212° | VO Correction: -0.00429933°
+Tracking: Optimized pos=[0.775787,-0.39494,0.0296981] inliers=70
+DataLoader: Frame 206, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=928 matches=141
+[Yaw Delta] IMU: -0.486906° | VO Correction: -0.252272°
+Tracking: Optimized pos=[0.807064,-0.394176,0.042131] inliers=70
+Local BA finished. Local KFs: 3 Local MPs: 230
+Tracking: Running Loop Detection...
+Loop Detection: Found 6 raw candidate(s).
+ -> Candidate KF 7 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 6 (Map 0xad7030660) yields 1 3D matches.
+ -> Candidate KF 4 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 0 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 1 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 9 (Map 0xad7030660) yields 0 3D matches.
+Loop Detection: No valid loops found after geometric verification.
+Tracking: KeyFrame inserted. Matches=57 Triangulated=56 Total Map=984
+DataLoader: Frame 207, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=984 matches=147
+[Yaw Delta] IMU: -0.453312° | VO Correction: -0.291404°
+Tracking: Optimized pos=[0.830593,-0.40177,0.0663997] inliers=76
+DataLoader: Frame 208, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=984 matches=154
+[Yaw Delta] IMU: -0.600779° | VO Correction: -0.295673°
+Tracking: Optimized pos=[0.858778,-0.418259,0.100121] inliers=65
+DataLoader: Frame 209, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=984 matches=134
+[Yaw Delta] IMU: -0.396943° | VO Correction: -0.153369°
+Tracking: Optimized pos=[0.879775,-0.445963,0.132198] inliers=60
+DataLoader: Frame 210, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=984 matches=139
+[Yaw Delta] IMU: -0.403664° | VO Correction: -0.373091°
+Tracking: Optimized pos=[0.894672,-0.448781,0.157861] inliers=57
+Local BA finished. Local KFs: 3 Local MPs: 242
+Tracking: Skipping Loop Detection for KeyFrame 21
+Tracking: KeyFrame inserted. Matches=56 Triangulated=54 Total Map=1038
+DataLoader: Frame 211, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1038 matches=143
+[Yaw Delta] IMU: -0.487132° | VO Correction: -0.306741°
+Tracking: Optimized pos=[0.910927,-0.458276,0.189444] inliers=66
+DataLoader: Frame 212, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1038 matches=140
+[Yaw Delta] IMU: -0.495917° | VO Correction: -0.0293829°
+Tracking: Optimized pos=[0.926748,-0.472399,0.213408] inliers=61
+Local BA finished. Local KFs: 3 Local MPs: 247
+Tracking: Skipping Loop Detection for KeyFrame 22
+Tracking: KeyFrame inserted. Matches=57 Triangulated=55 Total Map=1093
+DataLoader: Frame 213, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1093 matches=141
+[Yaw Delta] IMU: -0.395266° | VO Correction: -0.068941°
+Tracking: Optimized pos=[0.940442,-0.481834,0.247577] inliers=68
+DataLoader: Frame 214, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1093 matches=132
+[Yaw Delta] IMU: -0.338489° | VO Correction: +0.0321346°
+Tracking: Optimized pos=[0.955753,-0.492096,0.285692] inliers=73
+DataLoader: Frame 215, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1093 matches=120
+[Yaw Delta] IMU: -0.420619° | VO Correction: -0.144529°
+Tracking: Optimized pos=[0.974308,-0.497754,0.333408] inliers=52
+DataLoader: Frame 216, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1093 matches=102
+[Yaw Delta] IMU: -0.563474° | VO Correction: -0.178369°
+Tracking: Optimized pos=[0.999099,-0.511627,0.385512] inliers=51
+Local BA finished. Local KFs: 3 Local MPs: 238
+Tracking: Running Loop Detection...
+Loop Detection: Found 6 raw candidate(s).
+ -> Candidate KF 7 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 9 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 11 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 3 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 0 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 13 (Map 0xad7030660) yields 0 3D matches.
+Loop Detection: No valid loops found after geometric verification.
+Tracking: KeyFrame inserted. Matches=61 Triangulated=54 Total Map=1147
+DataLoader: Frame 217, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1147 matches=111
+[Yaw Delta] IMU: -0.603907° | VO Correction: -0.166859°
+Tracking: Optimized pos=[1.02089,-0.520591,0.430949] inliers=56
+DataLoader: Frame 218, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1147 matches=116
+[Yaw Delta] IMU: -0.523034° | VO Correction: -0.0174626°
+Tracking: Optimized pos=[1.0426,-0.536079,0.475094] inliers=55
+DataLoader: Frame 219, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=1147 matches=112
+[Yaw Delta] IMU: -0.710205° | VO Correction: -0.012065°
+Tracking: Optimized pos=[1.07785,-0.550017,0.521885] inliers=58
+Local BA finished. Local KFs: 3 Local MPs: 234
+Tracking: Skipping Loop Detection for KeyFrame 24
+Tracking: KeyFrame inserted. Matches=45 Triangulated=43 Total Map=1190
+DataLoader: Frame 220, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1190 matches=112
+[Yaw Delta] IMU: -0.597593° | VO Correction: +0.15431°
+Tracking: Optimized pos=[1.11016,-0.571516,0.566973] inliers=57
+DataLoader: Frame 221, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1190 matches=97
+[Yaw Delta] IMU: -0.560354° | VO Correction: -0.12004°
+Tracking: Optimized pos=[1.1371,-0.573061,0.607353] inliers=47
+DataLoader: Frame 222, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1190 matches=101
+[Yaw Delta] IMU: -0.627172° | VO Correction: +0.214193°
+Tracking: Optimized pos=[1.17003,-0.59614,0.644418] inliers=53
+Local BA finished. Local KFs: 2 Local MPs: 157
+Tracking: Skipping Loop Detection for KeyFrame 25
+Tracking: KeyFrame inserted. Matches=50 Triangulated=50 Total Map=1240
+DataLoader: Frame 223, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1240 matches=123
+[Yaw Delta] IMU: -0.614517° | VO Correction: -0.120617°
+Tracking: Optimized pos=[1.19522,-0.592496,0.674749] inliers=64
+DataLoader: Frame 224, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1240 matches=116
+[Yaw Delta] IMU: -0.638523° | VO Correction: -0.252652°
+Tracking: Optimized pos=[1.21912,-0.58349,0.715896] inliers=54
+DataLoader: Frame 225, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1240 matches=81
+[Yaw Delta] IMU: -0.673675° | VO Correction: +0.0764724°
+Tracking: Optimized pos=[1.2499,-0.597815,0.767652] inliers=37
+Local BA finished. Local KFs: 2 Local MPs: 149
+Tracking: Running Loop Detection...
+Loop Detection: Found 6 raw candidate(s).
+ -> Candidate KF 0 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 7 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 13 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 6 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 1 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 2 (Map 0xad7030660) yields 1 3D matches.
+Loop Detection: No valid loops found after geometric verification.
+Tracking: KeyFrame inserted. Matches=53 Triangulated=52 Total Map=1292
+DataLoader: Frame 226, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1292 matches=92
+[Yaw Delta] IMU: -0.632718° | VO Correction: +0.0595539°
+Tracking: Optimized pos=[1.28918,-0.636428,0.822468] inliers=38
+DataLoader: Frame 227, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1292 matches=71
+[Yaw Delta] IMU: -0.655563° | VO Correction: +0.0883362°
+Tracking: Optimized pos=[1.31788,-0.627905,0.86354] inliers=40
+Local BA finished. Local KFs: 2 Local MPs: 127
+Tracking: Skipping Loop Detection for KeyFrame 27
+Tracking: KeyFrame inserted. Matches=35 Triangulated=35 Total Map=1327
+DataLoader: Frame 228, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1327 matches=75
+[Yaw Delta] IMU: -0.710269° | VO Correction: -0.26296°
+Tracking: Optimized pos=[1.34821,-0.627237,0.916431] inliers=31
+DataLoader: Frame 229, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1327 matches=57
+[Yaw Delta] IMU: -0.723328° | VO Correction: +0.549183°
+Tracking: Optimized pos=[1.39275,-0.627022,0.962407] inliers=34
+DataLoader: Frame 230, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=1327 matches=60
+[Yaw Delta] IMU: -0.892217° | VO Correction: -0.126339°
+Tracking: Optimized pos=[1.44369,-0.640864,1.01692] inliers=30
+Local BA finished. Local KFs: 2 Local MPs: 107
+Tracking: Skipping Loop Detection for KeyFrame 28
+Tracking: KeyFrame inserted. Matches=28 Triangulated=28 Total Map=1355
+DataLoader: Frame 231, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1355 matches=50
+[Yaw Delta] IMU: -0.608907° | VO Correction: +0.401352°
+Tracking: Optimized pos=[1.49843,-0.666459,1.08071] inliers=21
+DataLoader: Frame 232, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1355 matches=46
+[Yaw Delta] IMU: -0.588346° | VO Correction: -0.499195°
+Tracking: Optimized pos=[1.52223,-0.66441,1.14168] inliers=23
+Local BA finished. Local KFs: 2 Local MPs: 103
+Tracking: Running Loop Detection...
+Loop Detection: Found 6 raw candidate(s).
+ -> Candidate KF 15 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 18 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 11 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 17 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 10 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 14 (Map 0xad7030660) yields 0 3D matches.
+Loop Detection: No valid loops found after geometric verification.
+Tracking: KeyFrame inserted. Matches=48 Triangulated=48 Total Map=1403
+DataLoader: Frame 233, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1403 matches=63
+[Yaw Delta] IMU: -0.506142° | VO Correction: +0.153159°
+Tracking: Optimized pos=[1.5593,-0.687952,1.20196] inliers=31
+DataLoader: Frame 234, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1403 matches=52
+[Yaw Delta] IMU: -0.594906° | VO Correction: -0.269881°
+Tracking: Optimized pos=[1.59214,-0.680953,1.27548] inliers=24
+Local BA finished. Local KFs: 2 Local MPs: 93
+Tracking: Skipping Loop Detection for KeyFrame 30
+Tracking: KeyFrame inserted. Matches=25 Triangulated=25 Total Map=1428
+DataLoader: Frame 235, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1428 matches=46
+[Yaw Delta] IMU: -0.707221° | VO Correction: -0.197608°
+Tracking: Optimized pos=[1.6335,-0.6842,1.34056] inliers=27
+DataLoader: Frame 236, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1428 matches=39
+[Yaw Delta] IMU: -0.716985° | VO Correction: +0.271538°
+Tracking: Optimized pos=[1.68816,-0.705183,1.40123] inliers=21
+Local BA finished. Local KFs: 2 Local MPs: 69
+Tracking: Skipping Loop Detection for KeyFrame 31
+Tracking: KeyFrame inserted. Matches=22 Triangulated=22 Total Map=1450
+DataLoader: Frame 237, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1450 matches=38
+[Yaw Delta] IMU: -0.674126° | VO Correction: -0.159615°
+Tracking: Optimized pos=[1.73116,-0.709308,1.47118] inliers=19
+DataLoader: Frame 238, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1450 matches=31
+[Yaw Delta] IMU: -0.674805° | VO Correction: -0.468509°
+Tracking: Optimized pos=[1.76479,-0.708412,1.55129] inliers=12
+Local BA finished. Local KFs: 2 Local MPs: 53
+Tracking: Running Loop Detection...
+Loop Detection: Found 6 raw candidate(s).
+ -> Candidate KF 16 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 6 (Map 0xad7030660) yields 1 3D matches.
+ -> Candidate KF 4 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 17 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 0 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 20 (Map 0xad7030660) yields 1 3D matches.
+Loop Detection: No valid loops found after geometric verification.
+Tracking: KeyFrame inserted. Matches=17 Triangulated=16 Total Map=1466
+DataLoader: Frame 239, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1466 matches=30
+[Yaw Delta] IMU: -0.729425° | VO Correction: +0.44707°
+Tracking: Optimized pos=[1.80779,-0.709393,1.60424] inliers=13
+DataLoader: Frame 240, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=1466 matches=32
+[Yaw Delta] IMU: -0.964157° | VO Correction: -0.680335°
+Tracking: Optimized pos=[1.85175,-0.689111,1.68518] inliers=12
+Local BA finished. Local KFs: 2 Local MPs: 43
+Tracking: Skipping Loop Detection for KeyFrame 33
+Tracking: KeyFrame inserted. Matches=16 Triangulated=12 Total Map=1478
+DataLoader: Frame 241, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=1478 matches=31
+[Yaw Delta] IMU: -0.745514° | VO Correction: +1.04198°
+Tracking: Optimizer Diverged (5 inliers). Rolling back to IMU.
+DataLoader: Frame 242, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 243, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 244, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 245, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 246, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 247, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 248, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 249, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 250, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 251, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 252, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 253, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 254, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 255, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 256, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 257, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 258, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 259, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 260, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 261, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 262, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 263, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 264, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 265, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 266, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 267, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 268, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 269, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 270, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 271, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 272, IMU samples: 3 timestamp: 1.77867e+09
+Tracking: Lost for 31 frames. Starting new map.
+Atlas: Created new Map (2 total)
+DataLoader: Frame 273, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 274, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 275, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 276, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 277, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.00221689m
+DataLoader: Frame 278, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 279, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 280, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 281, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 282, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 283, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 284, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 285, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 286, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 287, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 288, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 289, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 290, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 291, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 292, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 293, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 294, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 295, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 296, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 297, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 298, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 299, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 300, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 301, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 302, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 303, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 304, IMU samples: 4 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 305, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 306, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 307, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 308, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 309, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 310, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 311, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 312, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 313, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 314, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 315, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 316, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 317, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 318, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 319, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 320, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 321, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 322, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 323, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 324, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 325, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 326, IMU samples: 4 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 327, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 328, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 329, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 330, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 331, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 332, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 333, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 334, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 335, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 336, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 337, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 338, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 339, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 340, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 341, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 342, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation successful with baseline 0.0548694m and 30 valid points.
+Tracking: INITIALIZED! Map=30 baseline=0.0548694m
+DataLoader: Frame 343, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=30 matches=12
+[Yaw Delta] IMU: -0.419641° | VO Correction: +0.49646°
+Tracking: Optimizer Diverged (0 inliers). Rolling back to IMU.
+DataLoader: Frame 344, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 345, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 346, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 347, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 348, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 349, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 350, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 351, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 352, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 353, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 354, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 355, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 356, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 357, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 358, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 359, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 360, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 361, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 362, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 363, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 364, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 365, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 366, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 367, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 368, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 369, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 370, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 371, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 372, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 373, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 374, IMU samples: 3 timestamp: 1.77867e+09
+Tracking: Lost for 31 frames. Starting new map.
+Atlas: Created new Map (3 total)
+DataLoader: Frame 375, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 376, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 377, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 378, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 379, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 380, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 381, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 382, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.026047m
+DataLoader: Frame 383, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 384, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 385, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 386, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 387, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 388, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 389, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 390, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 391, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 392, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 393, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 394, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 395, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 396, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 397, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation successful with baseline 0.0548596m and 39 valid points.
+Tracking: INITIALIZED! Map=39 baseline=0.0548596m
+DataLoader: Frame 398, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=39 matches=21
+[Yaw Delta] IMU: -0.389542° | VO Correction: -0.197035°
+Tracking: Optimized pos=[-0.0527556,0.163117,0.0164468] inliers=21
+DataLoader: Frame 399, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=39 matches=26
+[Yaw Delta] IMU: -0.358641° | VO Correction: -0.311793°
+Tracking: Optimized pos=[-0.0684022,0.165175,0.0206057] inliers=18
+DataLoader: Frame 400, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=39 matches=17
+[Yaw Delta] IMU: -0.437729° | VO Correction: +0.131008°
+Tracking: Optimizer Diverged (7 inliers). Rolling back to IMU.
+DataLoader: Frame 401, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 402, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 403, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 404, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 405, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 406, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 407, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 408, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 409, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 410, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 411, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 412, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 413, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 414, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 415, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 416, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 417, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 418, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 419, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 420, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 421, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 422, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 423, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 424, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 425, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 426, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 427, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 428, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 429, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 430, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 431, IMU samples: 3 timestamp: 1.77867e+09
+Tracking: Lost for 31 frames. Starting new map.
+Atlas: Created new Map (4 total)
+DataLoader: Frame 432, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 433, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 434, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 435, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 436, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 437, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 438, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 439, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 440, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 441, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 442, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0488096m
+DataLoader: Frame 443, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation successful with baseline 0.0569184m and 29 valid points.
+Tracking: INITIALIZED! Map=29 baseline=0.0569184m
+DataLoader: Frame 444, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=29 matches=4
+Tracking weak: 4 matches pos=[-0.0556564,0.0404279,0.0104919]
+Tracking LOST!
+DataLoader: Frame 445, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 446, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 447, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 448, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 449, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 450, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 451, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 452, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 453, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 454, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 455, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 456, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 457, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 458, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 459, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 460, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 461, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 462, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 463, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 464, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 465, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 466, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 467, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 468, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 469, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 470, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 471, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 472, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 473, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 474, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 475, IMU samples: 4 timestamp: 1.77867e+09
+Tracking: Lost for 31 frames. Starting new map.
+Atlas: Created new Map (5 total)
+DataLoader: Frame 476, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 477, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 478, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 479, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 480, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 481, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 482, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 483, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 484, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 485, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 486, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 487, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 488, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 489, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 490, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 491, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 492, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 493, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 494, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 495, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 496, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 497, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 498, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 499, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 500, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation successful with baseline 0.0561724m and 22 valid points.
+Tracking: INITIALIZED! Map=22 baseline=0.0561724m
+DataLoader: Frame 501, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=22 matches=7
+Tracking weak: 7 matches pos=[-0.169778,0.251345,0.0159815]
+Tracking LOST!
+DataLoader: Frame 502, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 503, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 504, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 505, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 506, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 507, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 508, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 509, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 510, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 511, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 512, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 513, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 514, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 515, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 516, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 517, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 518, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 519, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 520, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 521, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 522, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 523, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 524, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 525, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 526, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 527, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 528, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 529, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 530, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 531, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 532, IMU samples: 3 timestamp: 1.77867e+09
+Tracking: Lost for 31 frames. Starting new map.
+Atlas: Created new Map (6 total)
+DataLoader: Frame 533, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 534, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 535, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 536, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 537, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 538, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 539, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 540, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 541, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 542, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 543, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 544, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 545, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 546, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 547, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0328822m
+DataLoader: Frame 548, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 549, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 550, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 551, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 552, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 553, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 554, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation successful with baseline 0.0557545m and 31 valid points.
+Tracking: INITIALIZED! Map=31 baseline=0.0557545m
+DataLoader: Frame 555, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=31 matches=20
+[Yaw Delta] IMU: -0.313482° | VO Correction: -1.02695°
+Tracking: Optimizer Diverged (8 inliers). Rolling back to IMU.
+DataLoader: Frame 556, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 557, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 558, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 559, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 560, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 561, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 562, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 563, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 564, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 565, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 566, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 567, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 568, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 569, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 570, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 571, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 572, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 573, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 574, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 575, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 576, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 577, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 578, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 579, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 580, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 581, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 582, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 583, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 584, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 585, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 586, IMU samples: 3 timestamp: 1.77867e+09
+Tracking: Lost for 31 frames. Starting new map.
+Atlas: Created new Map (7 total)
+DataLoader: Frame 587, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 588, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 589, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 590, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 591, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 592, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 593, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 594, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 595, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 596, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 597, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 598, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 599, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 600, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 601, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 602, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 603, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 604, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 605, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 606, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 607, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 608, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 609, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 610, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 611, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 612, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 613, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 614, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 615, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 616, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 617, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 618, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 619, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 620, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 621, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 622, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation successful with baseline 0.0605283m and 26 valid points.
+Tracking: INITIALIZED! Map=26 baseline=0.0605283m
+DataLoader: Frame 623, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=26 matches=20
+[Yaw Delta] IMU: -0.860972° | VO Correction: +2.86479°
+Tracking: Optimizer Diverged (0 inliers). Rolling back to IMU.
+DataLoader: Frame 624, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 625, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 626, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 627, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 628, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 629, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 630, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 631, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 632, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 633, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 634, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 635, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 636, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 637, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 638, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 639, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 640, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 641, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 642, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 643, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 644, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 645, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 646, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 647, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 648, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 649, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 650, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 651, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 652, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 653, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 654, IMU samples: 3 timestamp: 1.77867e+09
+Tracking: Lost for 31 frames. Starting new map.
+Atlas: Created new Map (8 total)
+DataLoader: Frame 655, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 656, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 657, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 658, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 659, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 660, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 661, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 662, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 663, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 664, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 665, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 666, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 667, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 668, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 669, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 670, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 671, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 672, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 673, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 674, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 675, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 676, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 677, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 678, IMU samples: 4 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 679, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 680, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 681, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 682, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 683, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 684, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 685, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 686, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 687, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 688, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 689, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 690, IMU samples: 4 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 691, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 692, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 693, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 694, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 695, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 696, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 697, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 698, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 699, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 700, IMU samples: 4 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 701, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 702, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 703, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 704, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 705, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 706, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 707, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 708, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 709, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 710, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 711, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 712, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 713, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 714, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 715, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 716, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 717, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 718, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 719, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 720, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 721, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 722, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 723, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 724, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 725, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 726, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 727, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 728, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 729, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 730, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 731, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 732, IMU samples: 4 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 733, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 734, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 735, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 736, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 737, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 738, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 739, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 740, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 741, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 742, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 743, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 744, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 745, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 746, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 747, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 748, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 749, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 750, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 751, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 752, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 753, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 754, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 755, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 756, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 757, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 758, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 759, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 760, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 761, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 762, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 763, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 764, IMU samples: 4 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 765, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 766, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 767, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 768, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 769, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 770, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 771, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 772, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 773, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 774, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 775, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 776, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 777, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 778, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 779, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 780, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 781, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 782, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 783, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 784, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 785, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 786, IMU samples: 4 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 787, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 788, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 789, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 790, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 791, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 792, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 793, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 794, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 795, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 796, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 797, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 798, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 799, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 800, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 801, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 802, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0445844m
+DataLoader: Frame 803, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 804, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 805, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 806, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 807, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 808, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 809, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 810, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 811, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 812, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 813, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 814, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 815, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation successful with baseline 0.0533975m and 25 valid points.
+Tracking: INITIALIZED! Map=25 baseline=0.0533975m
+DataLoader: Frame 816, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=25 matches=18
+[Yaw Delta] IMU: +0.022693° | VO Correction: +359.791°
+Tracking: Optimizer Diverged (9 inliers). Rolling back to IMU.
+DataLoader: Frame 817, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 818, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 819, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 820, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 821, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 822, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 823, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 824, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 825, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 826, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 827, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 828, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 829, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 830, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 831, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 832, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 833, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 834, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 835, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 836, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 837, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 838, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 839, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 840, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 841, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 842, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 843, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 844, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 845, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 846, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 847, IMU samples: 3 timestamp: 1.77867e+09
+Tracking: Lost for 31 frames. Starting new map.
+Atlas: Created new Map (9 total)
+DataLoader: Frame 848, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 849, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 850, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 851, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 852, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 853, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 854, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 855, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 856, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 857, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 858, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 859, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 860, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 861, IMU samples: 4 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 862, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 863, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 864, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 865, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 866, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 867, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 868, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 869, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 870, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 871, IMU samples: 4 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 872, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 873, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 874, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 875, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 876, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 877, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0347524m
+DataLoader: Frame 878, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 879, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 880, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 881, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 882, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 883, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 884, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 885, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 886, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 887, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 888, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 889, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 890, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 891, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 892, IMU samples: 4 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0249618m
+DataLoader: Frame 893, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 894, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 895, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 896, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 897, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 898, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 899, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 900, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 901, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 902, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 903, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 904, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 905, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 906, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 907, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0129715m
+DataLoader: Frame 908, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 909, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 910, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 911, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 912, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 913, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 914, IMU samples: 4 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 915, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 916, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 917, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 918, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 919, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 920, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 921, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 922, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0385721m
+DataLoader: Frame 923, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 924, IMU samples: 4 timestamp: 1.77867e+09
+Init: Triangulation successful with baseline 0.0511184m and 31 valid points.
+Tracking: INITIALIZED! Map=31 baseline=0.0511184m
+DataLoader: Frame 925, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=31 matches=0
+Tracking weak: 0 matches pos=[-0.330395,0.275734,0.143577]
+Tracking LOST!
+DataLoader: Frame 926, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 927, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 928, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 929, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 930, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 931, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 932, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 933, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 934, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 935, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 936, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 937, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 938, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 939, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 940, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 941, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 942, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 943, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 944, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 945, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 946, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 947, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 948, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 949, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 950, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 951, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 952, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 953, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 954, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 955, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 956, IMU samples: 3 timestamp: 1.77867e+09
+Tracking: Lost for 31 frames. Starting new map.
+Atlas: Created new Map (10 total)
+DataLoader: Frame 957, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 958, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 959, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 960, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 961, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 962, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 963, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 964, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 965, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 966, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 967, IMU samples: 4 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0235991m
+DataLoader: Frame 968, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 969, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 970, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 971, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 972, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 973, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 974, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 975, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 976, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 977, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 978, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 979, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 980, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 981, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 982, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 983, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 984, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 985, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 986, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 987, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 988, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 989, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 990, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 991, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 992, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 993, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 994, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 995, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 996, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 997, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 998, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 999, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1000, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1001, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1002, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1003, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1004, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1005, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1006, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1007, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1008, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1009, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1010, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 1011, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1012, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1013, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1014, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1015, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1016, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1017, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1018, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1019, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1020, IMU samples: 4 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 1021, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1022, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1023, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1024, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1025, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1026, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1027, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0359691m
+DataLoader: Frame 1028, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1029, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1030, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation successful with baseline 0.0516144m and 27 valid points.
+Tracking: INITIALIZED! Map=27 baseline=0.0516144m
+DataLoader: Frame 1031, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=27 matches=11
+Tracking weak: 11 matches pos=[-0.19611,0.138999,0.128056]
+DataLoader: Frame 1032, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=27 matches=7
+Tracking weak: 7 matches pos=[-0.202212,0.141541,0.1314]
+Tracking LOST!
+Local BA finished. Local KFs: 2 Local MPs: 40
+Tracking: Running Loop Detection...
+Loop Detection: Found 6 raw candidate(s).
+ -> Candidate KF 9 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 14 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 0 (Map 0xad70240c0) yields 0 3D matches.
+ -> Candidate KF 33 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 21 (Map 0xad7030660) yields 0 3D matches.
+ -> Candidate KF 19 (Map 0xad7030660) yields 1 3D matches.
+Loop Detection: No valid loops found after geometric verification.
+Tracking: KeyFrame inserted. Matches=15 Triangulated=13 Total Map=40
+DataLoader: Frame 1033, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1034, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1035, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1036, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1037, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1038, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1039, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1040, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1041, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1042, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 1043, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1044, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1045, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1046, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1047, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1048, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1049, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1050, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1051, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1052, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1053, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 1054, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1055, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1056, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1057, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1058, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1059, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1060, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1061, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1062, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1063, IMU samples: 4 timestamp: 1.77867e+09
+Tracking: Lost for 31 frames. Starting new map.
+Atlas: Created new Map (11 total)
+DataLoader: Frame 1064, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1065, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1066, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1067, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1068, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1069, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1070, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1071, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1072, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.00863126m
+DataLoader: Frame 1073, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1074, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 1075, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1076, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1077, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1078, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1079, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1080, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1081, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1082, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1083, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1084, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1085, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 1086, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1087, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0157163m
+DataLoader: Frame 1088, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1089, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1090, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1091, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1092, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1093, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1094, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1095, IMU samples: 4 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1096, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1097, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1098, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1099, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1100, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1101, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1102, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1103, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1104, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1105, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1106, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1107, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1108, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1109, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1110, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1111, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1112, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1113, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1114, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1115, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1116, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1117, IMU samples: 4 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0117754m
+DataLoader: Frame 1118, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1119, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1120, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1121, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1122, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1123, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1124, IMU samples: 3 timestamp: 1.77867e+09
+Init: Scene lost. Resetting Frame A.
+DataLoader: Frame 1125, IMU samples: 3 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1126, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1127, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1128, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 1129, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1130, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1131, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1132, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0365016m
+DataLoader: Frame 1133, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1134, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1135, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation successful with baseline 0.0519341m and 27 valid points.
+Tracking: INITIALIZED! Map=27 baseline=0.0519341m
+DataLoader: Frame 1136, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=27 matches=10
+Tracking weak: 10 matches pos=[0.00282825,0.0560681,0.131388]
+DataLoader: Frame 1137, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=27 matches=10
+Tracking weak: 10 matches pos=[0.00733426,0.0577711,0.133782]
+DataLoader: Frame 1138, IMU samples: 4 timestamp: 1.77867e+09
+searchMapPoints: map_size=27 matches=3
+Tracking weak: 3 matches pos=[0.0136905,0.0598337,0.136873]
+Tracking LOST!
+DataLoader: Frame 1139, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1140, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1141, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1142, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1143, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1144, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1145, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1146, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1147, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1148, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1149, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 1150, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1151, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1152, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1153, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1154, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1155, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1156, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1157, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1158, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1159, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1160, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 1161, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1162, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1163, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1164, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1165, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1166, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1167, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1168, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1169, IMU samples: 3 timestamp: 1.77867e+09
+Tracking: Lost for 31 frames. Starting new map.
+Atlas: Created new Map (12 total)
+DataLoader: Frame 1170, IMU samples: 4 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1171, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1172, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1173, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1174, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1175, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1176, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1177, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.00802136m
+DataLoader: Frame 1178, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1179, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1180, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1181, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 1182, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1183, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1184, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1185, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1186, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1187, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1188, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1189, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1190, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1191, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 1192, IMU samples: 3 timestamp: 1.77867e+09
+Init: Waiting for baseline... 0.0354213m
+DataLoader: Frame 1193, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1194, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1195, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1196, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1197, IMU samples: 3 timestamp: 1.77867e+09
+Init: Triangulation successful with baseline 0.0520212m and 29 valid points.
+Tracking: INITIALIZED! Map=29 baseline=0.0520212m
+DataLoader: Frame 1198, IMU samples: 3 timestamp: 1.77867e+09
+searchMapPoints: map_size=29 matches=17
+[Yaw Delta] IMU: -0.408926° | VO Correction: +1.75397°
+Tracking: Optimizer Diverged (8 inliers). Rolling back to IMU.
+DataLoader: Frame 1199, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1200, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1201, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1202, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1203, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 1204, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1205, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1206, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1207, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1208, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1209, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1210, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1211, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1212, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1213, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 1214, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1215, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1216, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1217, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1218, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1219, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1220, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1221, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1222, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1223, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1224, IMU samples: 4 timestamp: 1.77867e+09
+DataLoader: Frame 1225, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1226, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1227, IMU samples: 3 timestamp: 1.77867e+09
+DataLoader: Frame 1228, IMU samples: 1 timestamp: 1.77867e+09
+DataLoader: Frame 1229, IMU samples: 2 timestamp: 1.77867e+09
+Tracking: Lost for 31 frames. Starting new map.
+Atlas: Created new Map (13 total)
+DataLoader: Frame 1230, IMU samples: 1 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1231, IMU samples: 2 timestamp: 1.77867e+09
+DataLoader: Frame 1232, IMU samples: 0 timestamp: 1.77867e+09
+DataLoader: Frame 1233, IMU samples: 0 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 1234, IMU samples: 0 timestamp: 1.77867e+09
+Init: Locked Frame A.
+DataLoader: Frame 1235, IMU samples: 0 timestamp: 1.77867e+09
+Init: Triangulation failed (bad geometry). Resetting Frame A.
+DataLoader: Frame 1236, IMU samples: 0 timestamp: 1.77867e+09
+Init: Locked Frame A.
+SLAM Test Finished. Exporting Atlas data...
+Atlas contains 13 separate maps.
+ -> Saved atlas_map_0.csv (1478 points, 34 KeyFrames).
+ -> Ignored a fragmented map with only 30 points.
+ -> Ignored a fragmented map with only 39 points.
+ -> Ignored a fragmented map with only 29 points.
+ -> Ignored a fragmented map with only 22 points.
+ -> Ignored a fragmented map with only 31 points.
+ -> Ignored a fragmented map with only 26 points.
+ -> Ignored a fragmented map with only 25 points.
+ -> Ignored a fragmented map with only 31 points.
+ -> Ignored a fragmented map with only 40 points.
+ -> Ignored a fragmented map with only 27 points.
+ -> Ignored a fragmented map with only 29 points.
+ -> Ignored a fragmented map with only 0 points.

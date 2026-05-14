@@ -5,6 +5,7 @@
 #include "Atlas.hpp"
 #include "BoW.hpp"
 #include "KeyFrameDatabase.hpp"
+#include "Vision.hpp"
 
 namespace orb_lite {
 
@@ -22,6 +23,7 @@ private:
     Atlas* mpAtlas;
     KeyFrameDatabase* mpDB;
     Vocabulary* mpVoc;
+    FeatureExtractor mExtractor;
 };
 
 } // namespace orb_lite

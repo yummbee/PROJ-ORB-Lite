@@ -63,7 +63,8 @@ int main() {
     std::cout << "Initial Position Error: " << dist(noisy_state.p, true_state.p) << "m" << std::endl;
 
     // 4. Optimize
-    Optimizer::poseOptimization(matches, kps, cam, noisy_state, map);
+    FeatureExtractor extractor;
+    Optimizer::poseOptimization(matches, kps, cam, noisy_state, map, extractor);
 
     // 5. Check result
     double final_err = dist(noisy_state.p, true_state.p);

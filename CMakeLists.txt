@@ -34,6 +34,11 @@ add_library(orb_lite STATIC
 
 target_include_directories(orb_lite PUBLIC include)
 
+if(OpenCV_FOUND)
+    target_compile_definitions(orb_lite PUBLIC WITH_OPENCV)
+    target_link_libraries(orb_lite PUBLIC ${OpenCV_LIBS})
+endif()
+
 add_executable(orb_lite_test
     src/Main.cpp
 )

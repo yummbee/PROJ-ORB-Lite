@@ -12,8 +12,9 @@ namespace orb_lite {
 struct MapPoint {
     Vec3 pos;
     Descriptor descriptor;
-    int observedCount = 0;
-    int refKfId = -1; // Reference KeyFrame for relative position
+    int nVisible = 1;
+    int nFound = 1;
+    int refKfId = -1;
     bool isBad = false;
     class Map* pMap = nullptr;
 };

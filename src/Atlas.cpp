@@ -1,4 +1,5 @@
 #include "Atlas.hpp"
+#include "KeyFrameDatabase.hpp"
 #include <iostream>
 
 namespace orb_lite {
@@ -28,14 +29,17 @@ std::vector<Map*> Atlas::getAllMaps() {
     return m_maps;
 }
 
-void Atlas::mergeMaps(Map* pTargetMap, Map* pCurrentMap, const Mat4x4& T_Wt_Wc) {
+void Atlas::mergeMaps(Map* pTargetMap, Map* pCurrentMap, const Sim3& S_Wt_Wc, KeyFrameDatabase* pKFDB) {
     std::lock_guard<std::mutex> lock(m_mutex);
     std::cout << "Atlas: Merging Current Map (" << pCurrentMap->points.size() 
               << " pts) into Target Map (" << pTargetMap->points.size() << " pts)..." << std::endl;
 
-    // 1. Calculate the inverse matrix for the KeyFrames
-    Mat4x4 T_Wc_Wt;
-    invert4x4(T_Wt_Wc, T_Wc_Wt); // You'll need an invert4x4 function
+    // 0. Remove from database before pointers become invalid
+    if (pKFDB) {
+        for (auto& kf : pCurrentMap->keyframes) {
+            pKFDB->erase(&kf);
+        }
+    }
 
     // 2. Calculate the Index Offset for the arrays
     size_t pointIndexOffset = pTargetMap->points.size();
@@ -43,26 +47,33 @@ void Atlas::mergeMaps(Map* pTargetMap, Map* pCurrentMap, const Mat4x4& T_Wt_Wc) 
 
     // 3. Transform and Migrate MapPoints
     for (auto& mp : pCurrentMap->points) {
-        Vec3 old_pos = mp.pos;
-        
-        // P_target = T_Wt_Wc * P_current
-        mp.pos.x = T_Wt_Wc.m[0]*old_pos.x + T_Wt_Wc.m[1]*old_pos.y + T_Wt_Wc.m[2]*old_pos.z + T_Wt_Wc.m[3];
-        mp.pos.y = T_Wt_Wc.m[4]*old_pos.x + T_Wt_Wc.m[5]*old_pos.y + T_Wt_Wc.m[6]*old_pos.z + T_Wt_Wc.m[7];
-        mp.pos.z = T_Wt_Wc.m[8]*old_pos.x + T_Wt_Wc.m[9]*old_pos.y + T_Wt_Wc.m[10]*old_pos.z + T_Wt_Wc.m[11];
-        
-        // Update the pointer so this point knows it lives in a new map
+        mp.pos = S_Wt_Wc.transform(mp.pos);
         mp.pMap = pTargetMap;
         pTargetMap->points.push_back(mp);
     }
 
     // 4. Transform and Migrate KeyFrames
+    Mat3x3 R_Wt_Wc = qToMat33(S_Wt_Wc.q);
     for (auto& kf : pCurrentMap->keyframes) {
-        // kf.pose is T_Wc_c (transform from Camera to Current World).
-        // We want T_Wt_c (transform from Camera to Target World).
-        // T_Wt_c = T_Wt_Wc * T_Wc_c
-        kf.pose = mat44Mul(T_Wt_Wc, kf.pose); 
+        // T_Wt_c = S_Wt_Wc * T_Wc_c
+        Mat3x3 R_Wc_c = mat33ExtractRotation(kf.pose);
+        Vec3 t_Wc_c = {kf.pose.m[3], kf.pose.m[7], kf.pose.m[11]};
         
-        // CRITICAL: Shift the MapPoint IDs so the KeyFrame looks at the correct memory locations!
+        Mat3x3 R_Wt_c = mat33Mul(R_Wt_Wc, R_Wc_c);
+        Vec3 t_Wt_c = {
+            S_Wt_Wc.s * (R_Wt_Wc.m[0]*t_Wc_c.x + R_Wt_Wc.m[1]*t_Wc_c.y + R_Wt_Wc.m[2]*t_Wc_c.z) + S_Wt_Wc.t.x,
+            S_Wt_Wc.s * (R_Wt_Wc.m[3]*t_Wc_c.x + R_Wt_Wc.m[4]*t_Wc_c.y + R_Wt_Wc.m[5]*t_Wc_c.z) + S_Wt_Wc.t.y,
+            S_Wt_Wc.s * (R_Wt_Wc.m[6]*t_Wc_c.x + R_Wt_Wc.m[7]*t_Wc_c.y + R_Wt_Wc.m[8]*t_Wc_c.z) + S_Wt_Wc.t.z
+        };
+        
+        kf.pose = {
+            R_Wt_c.m[0], R_Wt_c.m[1], R_Wt_c.m[2], t_Wt_c.x,
+            R_Wt_c.m[3], R_Wt_c.m[4], R_Wt_c.m[5], t_Wt_c.y,
+            R_Wt_c.m[6], R_Wt_c.m[7], R_Wt_c.m[8], t_Wt_c.z,
+            0, 0, 0, 1
+        };
+        
+        // Shift the MapPoint IDs
         for (int i = 0; i < (int)kf.mapPointIds.size(); i++) {
             if (kf.mapPointIds[i] >= 0) {
                 kf.mapPointIds[i] += pointIndexOffset;
@@ -78,9 +89,13 @@ void Atlas::mergeMaps(Map* pTargetMap, Map* pCurrentMap, const Mat4x4& T_Wt_Wc) 
 
         kf.pMap = pTargetMap;
         pTargetMap->keyframes.push_back(kf);
+        
+        if (pKFDB) {
+            pKFDB->add(&pTargetMap->keyframes.back());
+        }
     }
     
-    // 5. Erase the old map from the Atlas memory
+    // 5. Erase the old map
     for (auto it = m_maps.begin(); it != m_maps.end(); ++it) {
         if (*it == pCurrentMap) {
             m_maps.erase(it);
@@ -89,9 +104,7 @@ void Atlas::mergeMaps(Map* pTargetMap, Map* pCurrentMap, const Mat4x4& T_Wt_Wc) 
     }
     delete pCurrentMap;
     
-    // 6. Set the Target Map as the active map
     m_currentMap = pTargetMap;
-    
     std::cout << "Atlas: Merge complete. New map size: KFs=" << pTargetMap->keyframes.size() 
               << ", MPs=" << pTargetMap->points.size() << std::endl;
 }

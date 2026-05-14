@@ -1,5 +1,6 @@
 #include "IMU.hpp"
 #include <cmath>
+#include <iostream>
 
 namespace orb_lite {
 
@@ -39,6 +40,11 @@ void Preintegrated::update(const Vec3& acc, const Vec3& gyro, double dt_step, co
 
     dR = qNormalize(qMul(dR, mat33ToQuat(deltaR)));
     dt += dt_step;
+
+
+    std::cout << "[GYRO RAW] X:" << w.x << " Y:" << w.y << " Z:" << w.z 
+                << " | Angle Step: " << d * 57.29 << "°" << std::endl;
+    
 }
 
 Quaternion alignGravity(const std::vector<ImuSample>& samples) {
@@ -53,10 +59,21 @@ Quaternion alignGravity(const std::vector<ImuSample>& samples) {
     mean_acc.y /= samples.size();
     mean_acc.z /= samples.size();
 
+    // Transform from Hardware IMU frame to Optical Frame
+    Mat3x3 R_cb = {
+         0.0f,  1.0f,  0.0f, 
+        -1.0f,  0.0f,  0.0f, 
+         0.0f,  0.0f,  1.0f  
+    };
+    Vec3 mean_acc_opt;
+    mean_acc_opt.x = R_cb.m[0]*mean_acc.x + R_cb.m[1]*mean_acc.y + R_cb.m[2]*mean_acc.z;
+    mean_acc_opt.y = R_cb.m[3]*mean_acc.x + R_cb.m[4]*mean_acc.y + R_cb.m[5]*mean_acc.z;
+    mean_acc_opt.z = R_cb.m[6]*mean_acc.x + R_cb.m[7]*mean_acc.y + R_cb.m[8]*mean_acc.z;
+
     // Standard gravity vector in world frame (Z up)
     Vec3 g_w = {0, 0, 1.0};
     // Gravity vector in IMU frame
-    Vec3 g_i = mean_acc;
+    Vec3 g_i = mean_acc_opt;
     double mag = std::sqrt(g_i.x*g_i.x + g_i.y*g_i.y + g_i.z*g_i.z);
     if (mag < 1e-6) return {1,0,0,0};
     g_i.x /= mag; g_i.y /= mag; g_i.z /= mag;

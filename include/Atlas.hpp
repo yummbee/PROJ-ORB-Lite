@@ -16,7 +16,7 @@ public:
     Map* getCurrentMap();
     std::vector<Map*> getAllMaps();
     
-    void mergeMaps(Map* pTargetMap, Map* pCurrentMap, const Mat4x4& T_target_current);
+    void mergeMaps(Map* pTargetMap, Map* pCurrentMap, const Sim3& S_Wt_Wc, class KeyFrameDatabase* pKFDB = nullptr);
 
 private:
     std::vector<Map*> m_maps;
